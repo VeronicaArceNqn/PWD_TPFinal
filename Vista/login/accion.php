@@ -6,7 +6,7 @@ include_once $dir.'../estructura/cabecera.php';
 $datos = data_submitted();
 $resp = false;
 //Array ( [accion] => login [usnombre] => malapi [uspass] => d41d8cd98f00b204e9800998ecf8427e )
-//print_r($datos);
+print_r($datos);
 if (isset($datos['accion'])){
 
     if ($datos['accion']=="login"){

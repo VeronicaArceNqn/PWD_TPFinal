@@ -23,7 +23,7 @@ class Session{
         print_r($resultado);
         if(count($resultado) > 0){
             $usuario = $resultado[0];
-            $_SESSION['idusuario']=$usuario->getidusuario();
+            $_SESSION['idusuario']=$usuario->getIdusuario();
             $resp = true;
         } else {
             $this->cerrar();

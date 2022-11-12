@@ -67,25 +67,25 @@ include_once '../../configuracion.php';
         }*/
     }
         if ($resp) {
-            $mensaje = "La accion " . $datos['accion'] . " se realizo correctamente.";
+            $mensaje = "La accion " . $datos['accion'] . " Usuario se realizo correctamente.";
           //  header('Refresh: 5;URL=NuevaPersona.php');
-           $botonAuto='<div class="col-md-3 pb-3">
+         /*  $botonAuto='<div class="col-md-3 pb-3">
            <a href="NuevoAuto.php"class="btn btn-warning d-grid gap-2 pl-0 mx-auto col-6 pt-2 text-center">Cargar Auto</a>
-            </div>';
+            </div>';*/
     
         } else {
-            $mensaje = "La accion " . $datos['accion'] . " no pudo concretarse.";
+            $mensaje = "La accion " . $datos['accion'] . " Usuario no pudo concretarse.";
             //echo $objABMPersona->getmensajeoperacion();
         }
 
         echo "<H4 class='text-center bg-success text-light'>$mensaje</H4>";
         ?>
         <?php
-    echo $botonAuto;
+   // echo $botonAuto;
     ?>
     
        <div class="col-md-3">
-            <a href="../registroUsuario.php"class="btn btn-secondary d-grid gap-2 pl-0 mx-auto col-6 pt-2">Volver</a>
+            <a href="listarUsuario.php"class="btn btn-secondary d-grid gap-2 pl-0 mx-auto col-6 pt-2">Volver</a>
         </div>
 </div>
 </div>

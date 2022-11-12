@@ -3,6 +3,8 @@ $dir="";
 $titulo = "Login";
 include_once $dir.'../../configuracion.php';
 include_once $dir.'../estructura/cabecera.php';
+$datos = data_submitted();
+
 ?>	
 <div class="container border border-secondary principal mt-3 pt-3">
     <h3 class="text-center">Login</h3>
@@ -53,15 +55,15 @@ include_once $dir.'../estructura/cabecera.php';
             </div>
         </div>
     </div>
-	<input type="button" class="btn btn-primary btn-block" value="Validar" onclick="iniciarSesion()">
+	<input type="button" class="btn btn-primary btn-block" value="Validar" onclick="formSubmit()">
 </form>
 <a href="index.php">Volver</a>
 
 <script>
 
-function iniciarSesion()
+function formSubmit()
 {
-    var password =  document.getElementById("uspass").value;
+    var password = document.getElementById("uspass").value;
     alert(password);
     var passhash = CryptoJS.MD5(password).toString();
     alert(passhash);

@@ -8,56 +8,40 @@ class ABMusuario{
                 $resp = true;
             }
         }
-       /* if($datos['accion']=='borrar'){
-            if($this->baja($datos)){
+        if($datos['accion']=='borradoLogico'){
+            if($this->bajaLogica($datos)){
                 $resp =true;
             }
-        }*/
-                  /*  if($datos['accion']=='nuevo'){
-                        if($this->alta($datos)){
-                            $resp =true;
+        }
+        if ($datos['accion'] == 'nuevo') {
+            $objUsuario=null;
+            if (isset($datos['usmail'])) {
+                $arraymail = ['usmail' => $datos['usmail']];
+                //print_r($arraymail);
+                $objUsuario = $this->buscar($arraymail);
+                //echo "<br>objUsuario me devuelve de buscar : <br>";
+                //print_r($objUsuario);
+            }
+            if ($objUsuario == null) {
+                // $mensajeResultado = $this->verificarUsuarioMail($datos);
+                //print_r($datos);
+                //print_r($mensajeResultado['Resultado']);
+                //if ($mensajeResultado==null) {
+                    if (isset($datos['accion'])) {
+                        //echo $datos['accion'];
+                        print_r($datos);
+                        if ($this->alta($datos)) {
+                            $resp = true;
                         }
-                        
-                    }*/
-
-
-
-
-                    if ($datos['accion'] == 'nuevo') {
-             
-                        $objUsuario=null;
-                        if (isset($datos['usmail'])) {
-                            $arraymail = ['usmail' => $datos['usmail']];
-                            //print_r($arraymail);
-                            
-                            
-                            $objUsuario = $this->buscar($arraymail);
-                            //echo "<br>objUsuario me devuelve de buscar : <br>";
-                            //print_r($objUsuario);
-                        }
-                        if ($objUsuario == null) {
-                          // $mensajeResultado = $this->verificarUsuarioMail($datos);
-                           //print_r($datos);
-                           //print_r($mensajeResultado['Resultado']);
-                            
-            
-                            //if ($mensajeResultado==null) {
-                                if (isset($datos['accion'])) {
-                                    //echo $datos['accion'];
-                                    print_r($datos);
-                                    if ($this->alta($datos)) {
-                                        $resp = true;
-                                    }
-                                }
-                            /*} else {
-            
-                                echo $mensajeResultado['Mensaje'];
-                            }*/
-                        }
-                        else {
-                        echo "El correo electrónico ya esta registrado";
-                       }
                     }
+                    /*} else {
+                        echo $mensajeResultado['Mensaje'];
+                    }*/
+            }
+            else {
+                echo "El correo electrónico ya esta registrado";
+            }
+        }
 
 
 
@@ -76,9 +60,10 @@ class ABMusuario{
             $obj = new Usuario();
             $obj->setear($param['idusuario'], $param['usnombre'], $param['uspass'], $param['usmail']);
         }
-       // print_r($obj);
+        //print_r($obj);
         return $obj;
     }
+    
      /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
@@ -102,6 +87,7 @@ class ABMusuario{
         $resp = false;
         if (isset($param['idusuario']))
             $resp = true;
+        //echo "SeteadosCamposClaves". $resp;
         return $resp;
      }
      public function alta($param){
@@ -120,17 +106,17 @@ class ABMusuario{
      * @param array $param
      * @return boolean
      */
-    /*
-    public function baja($param){
+    
+    public function bajaLogica($param){
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
             $elObjUsuario = $this->cargarObjetoConClave($param);
-            if($elObjUsuario!=null and $elObjUsuario->eliminar()){
+            if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
                 $resp = true;
             }
         }
         return $resp;
-    }*/
+    }
      /**
      * permite modificar un objeto
      * @param array $param
@@ -140,7 +126,8 @@ class ABMusuario{
         $resp = false;
         if($this->seteadosCamposClaves ($param)){
             $elObjUsuario = $this->cargarObjeto($param);
-            if($elObjUsuario!=null and $elObjUsuario->modificar()){
+            print_r($param);
+            if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
                 $resp = true;
             }
         }
