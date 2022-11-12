@@ -1,7 +1,7 @@
 <?php
 $titulo =".: Inicio :.";
 $dir="";
-include ($dir."../estructura/cabecera.php");
+include ($dir."../estructura/cabeceraSegura.php");
 //include ($dir."../login.php");
 ?><div class="container-fluid principal">
       <div class="container text-center mx-auto" style="width: 300px">

@@ -88,8 +88,8 @@ class Usuario extends BaseDatos{
         // se puede crear la variable usdeshab para registrar null en el campo usdeshabilitado
 
         $usdeshab="null";
-        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsnombre()."',".$this->getUspass().",'".$this->getUsmail()."', '".$usdeshab."')";
-       echo "Este es el sql para insertar <br>".$sql;
+        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsnombre()."','".$this->getUspass()."','".$this->getUsmail()."', '".$usdeshab."')";
+       //echo "Este es el sql para insertar ".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)){
                 $this->setIdusuario($elid);
@@ -105,7 +105,7 @@ class Usuario extends BaseDatos{
     }
     
     public function modificar($tipo){
-        print_r($tipo);
+        //print_r($tipo);
         $resp = false;
         $base = new BaseDatos();
         if($tipo['accion'] == "borradoLogico"){

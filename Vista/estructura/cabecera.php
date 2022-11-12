@@ -12,6 +12,8 @@ $dir="";
     <script src="../js/bootstrap/bootstrap.bundle.js"></script>
     <script src="../js/bootstrap/bootstrap.min.js"></script>
     <script src="../js/bootstrap/bootstrap.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
     <title><?php echo $titulo?></title>
 </head>
 <body>
@@ -36,7 +38,7 @@ $dir="";
             <li><a class="dropdown-item" href="<?php echo $dir?>../login/index.php">Loguear</a></li>
             <li><a class="dropdown-item" href="#">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">LogOut</a></li>
+            <!---<li><a class="dropdown-item" href="#">LogOut</a></li>-->
         </ul>
   </li>
   <li class="nav-item dropdown">

@@ -1,5 +1,5 @@
 <?php 
-include_once("../configuracion.php");
+include_once("../../configuracion.php");
 $dir="";
 ?>
 <!DOCTYPE html>
@@ -66,10 +66,10 @@ $dir="";
 $objTrans = new Session();
 $resp = $objTrans->validar();
 if($resp) {
-   //echo("<script>location.href = '../home/index.php';</script>");
+   echo("<script>location.href = '../home/index.php';</script>");
 } else {
     $mensaje ="Error, vuelva a intentarlo";
-    echo("<script>location.href = 'login/index.php?msg=".$mensaje."';</script>");
+    echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
 }
 
 
