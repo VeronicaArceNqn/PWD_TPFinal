@@ -29,7 +29,7 @@ class ABMusuario{
                 //if ($mensajeResultado==null) {
                     if (isset($datos['accion'])) {
                         //echo $datos['accion'];
-                        print_r($datos);
+                       // print_r($datos);
                         if ($this->alta($datos)) {
                             $resp = true;
                         }
@@ -91,7 +91,7 @@ class ABMusuario{
         return $resp;
      }
      public function alta($param){
-       // print_r($param);
+        //print_r($param);
         $resp = false;
         $param['idusuario']=null;
 
@@ -126,7 +126,7 @@ class ABMusuario{
         $resp = false;
         if($this->seteadosCamposClaves ($param)){
             $elObjUsuario = $this->cargarObjeto($param);
-            print_r($param);
+            //print_r($param);
             if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
                 $resp = true;
             }

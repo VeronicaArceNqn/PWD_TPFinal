@@ -32,6 +32,14 @@ $dir="";
     <a class="nav-link active" aria-current="page" href="<?php echo $dir?>../home/index.php">Inicio</a>
   </li>
   <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?php echo $dir?>../producto/formProducto.php">Registrar producto</a></li>
+            <li><a class="dropdown-item" href="<?php echo $dir?>../producto/listarUsuario.php">Listado de productos</a></li>
+            
+        </ul>
+  </li>
+  <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Usuario</a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?php echo $dir?>../usuario/formUsuario.php">Registrar Usuario</a></li>
@@ -39,24 +47,26 @@ $dir="";
             <li><a class="dropdown-item" href="#">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">LogOut</a></li>
+            <li><a class="dropdown-item" href="../usuario/listarUsuario.php">Listado de Usuarios</a></li>
         </ul>
   </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Rol</a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?php echo $dir?>../rol/formRol.php">Registrar Rol</a></li>
+            <li><a class="dropdown-item" href="../rol/listarRol.php">Listado de Roles</a></li>
         </ul>
   </li>
   <!--<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="index.php" role="button" aria-expanded="false">Listados</a>
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Listados</a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href=../listarUsuario.php">Listado de Usuarios</a></li>
         </ul>
-  </li>-->
+  </li>
   
   <li class="nav-item">
     <a class="nav-link" href="../usuario/listarUsuario.php">Listado de Usuarios</a>
-  </li>
+  </li>-->
 </ul>
 
 

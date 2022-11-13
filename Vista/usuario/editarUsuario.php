@@ -6,15 +6,15 @@ include_once '../../configuracion.php';
 $objAbmUsuario = new ABMusuario();
 $datos =data_submitted();
 $obj = null;
-print_r ($datos);
-echo $datos['idusuario'];
+//print_r ($datos);
+//echo $datos['idusuario'];
 if (isset($datos['idusuario'])){
     $listaUsuario = $objAbmUsuario->buscar($datos);
-    print_r($listaUsuario);
+    //print_r($listaUsuario);
     if (count($listaUsuario)==1){
         $obj= $listaUsuario[0];
 
-        print_r($obj);
+        //print_r($obj);
     }
 }
 

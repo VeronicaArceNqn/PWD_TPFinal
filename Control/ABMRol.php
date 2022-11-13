@@ -23,47 +23,38 @@ class ABMrol{
 
 
 
-                    if ($datos['accion'] == 'nuevo') {
-             
-                        $objRol=null;
-                        if (isset($datos['idrol'])) {
-                            $arrayrol = ['idrol' => $datos['idrol']];
-                            //print_r($arrayrol);
-                            
-                            
-                            $objRol = $this->buscar($arrayrol);
-                            //echo "<br> objRol me devuelve de buscar : <br>";
-                            //print_r($objRol);
+        if ($datos['accion'] == 'nuevo') {
+            $objRol=null;
+            if (isset($datos['rodescripcion'])) {
+                $arrayrol = ['rodescripcion' => $datos['rodescripcion']];
+                //print_r($arrayrol);                   
+                $objRol = $this->buscar($arrayrol);
+                //echo "<br> objRol me devuelve de buscar : <br>";
+               // print_r($objRol);
+            }
+            if ($objRol == null) {
+                // $mensajeResultado = $this->verificarIdRol($datos);
+                //print_r($datos);
+                //print_r($mensajeResultado['Resultado']);
+                //if ($mensajeResultado['Resultado']) {
+                    if (isset($datos['accion'])) {
+                        //echo $datos['accion'];
+                        //print_r($datos);
+                        if ($this->alta($datos)) {
+                            $resp = true;
                         }
-                        if ($objRol == null) {
-                           $mensajeResultado = $this->verificarIdRol($datos);
-                           //print_r($datos);
-                           //print_r($mensajeResultado['Resultado']);
-                            
-            
-                            if ($mensajeResultado['Resultado']) {
-                                if (isset($datos['accion'])) {
-                                    //echo $datos['accion'];
-                                    print_r($datos);
-                                    if ($this->alta($datos)) {
-                                        $resp = true;
-                                    }
-                                }
-                            } else {
-            
-                                echo $mensajeResultado['Mensaje'];
-                            }
-                        }
-                        else {
-                        echo "<H4 class='text-center bg-danger text-light'>El rol ya esta registrado</  H4>";
-                       }
                     }
-
-
-
+                /* } else {
+                    echo $mensajeResultado['Mensaje'];
+                }*/
+            }
+            else {
+                echo "El rol ya esta registrado";
+            }
+        }
         return $resp;
 
-        }
+    }
      /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
     *@param array $param
@@ -76,7 +67,7 @@ class ABMrol{
             $obj = new Rol();
             $obj->setear($param['idrol'], $param['rodescripcion']);
         }
-       // print_r($obj);
+        //print_r($obj);
         return $obj;
     }
      /**
@@ -105,11 +96,13 @@ class ABMrol{
         return $resp;
      }
      public function alta($param){
-       // print_r($param);
+        //print_r($param);
         $resp = false;
         $param['idrol']=null;
 
         $elObjRol = $this->cargarObjeto($param);
+       // echo "cargar objeto ";
+        //print_r($param);
         if ($elObjRol!=null and $elObjRol->insertar()){
             $resp = true;
         }

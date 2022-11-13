@@ -8,9 +8,9 @@ include_once '../../configuracion.php';
 <div class="container-fluid principal ml-2 p-4">
     <?php
     $datos = data_submitted();
-    echo "<pre>";
+    /*echo "<pre>";
     print_r($datos);
-    echo "</pre>"; 
+    echo "</pre>";*/ 
     
     $resp = false;
     $objAbmUsuario = new ABMusuario();

@@ -89,7 +89,7 @@ class Usuario extends BaseDatos{
 
         $usdeshab="null";
         $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsnombre()."','".$this->getUspass()."','".$this->getUsmail()."', '".$usdeshab."')";
-       echo "Este es el sql para insertar <br>".$sql;
+       //echo "Este es el sql para insertar <br>".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)){
                 $this->setIdusuario($elid);
@@ -105,17 +105,17 @@ class Usuario extends BaseDatos{
     }
     
     public function modificar($tipo){
-        print_r($tipo);
+       // print_r($tipo);
         $resp = false;
         $base = new BaseDatos();
         if($tipo['accion'] == "borradoLogico"){
             $fechaActual=Date("Y-m-d h:i:s");
             //echo date("Y-m-d h:i:s");
             $sql="UPDATE usuario SET usdeshabilitado = '$fechaActual' WHERE idusuario = ".$this->getIdusuario()."";
-            echo "<br> este es el UPDATE borradoLogico ". $sql;
+            //echo "<br> este es el UPDATE borradoLogico ". $sql;
         }else{
             $sql = "UPDATE usuario SET uspass = '".$this->getUspass()."' WHERE idusuario = ". $this->getIdusuario()."";
-            echo "<br> este es el UPDATE Contraseña ". $sql;
+           // echo "<br> este es el UPDATE Contraseña ". $sql;
         }
         if ($base->Iniciar()){
             if ($base->Ejecutar($sql)){
