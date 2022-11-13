@@ -88,7 +88,7 @@ class Usuario extends BaseDatos{
         // se puede crear la variable usdeshab para registrar null en el campo usdeshabilitado
 
         $usdeshab="null";
-        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsnombre()."',".$this->getUspass().",'".$this->getUsmail()."', '".$usdeshab."')";
+        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsnombre()."','".$this->getUspass()."','".$this->getUsmail()."', '".$usdeshab."')";
        echo "Este es el sql para insertar <br>".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)){

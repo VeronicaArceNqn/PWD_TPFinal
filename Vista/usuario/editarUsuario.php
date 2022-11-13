@@ -40,14 +40,33 @@ if (isset($datos['idusuario'])){
                 <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
             </div>
             <div class="form-group mb-4">
-                <label for="pass">Contraseña</label>
+                <label for="uspass">Contraseña</label>
                 <input type="password" class="form-control" id="uspass" name="uspass" placeholder="" required>
             </div>
             <input id="accion" name="accion" value="editar" type="hidden">
-            <button type="submit" class="btn btn-primary mb-4">Modificar datos</button>
+
+            <input type="button" class="btn btn-primary mb-4" value="Modificar contraseña" onclick="encriptar()">
+            <!--
+            <button type="submit" class="btn btn-primary mb-4">Modificar datos</button>-->
 
             
         </form>
+        <script>
+            function encriptar(){
+                var password =  document.getElementById("uspass").value;
+                alert(password);
+                var passhash = CryptoJS.MD5(password).toString();
+                alert("passhash");
+                document.getElementById("uspass").value = passhash;
+
+    setTimeout(function(){ 
+        document.getElementById("form1").submit();
+
+	}, 500);
+
+            }
+
+        </script>
        
     </div>
     </div>
