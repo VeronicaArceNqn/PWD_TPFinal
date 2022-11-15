@@ -181,6 +181,21 @@ class ABMusuario{
         print_r($objUsuario);
         return $objUsuario;
     }
+    
+    public function darRoles($param)
+    {
+        $where = " true ";
+        if ($param <> NULL) {
+            if (isset($param['idusuario']))
+                $where .= " and idusuario =" . $param['idusuario'];
+            if (isset($param['idrol']))
+                $where .= " and idrol ='" . $param['idrol'] . "'";
+        }
+        $obj = new UsuarioRol();
+        $arreglo = $obj->listar($where);
+        //echo "Van ".count($arreglo);
+        return $arreglo;
+    }
 }
 
 
