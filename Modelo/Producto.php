@@ -1,60 +1,71 @@
 <?php
-class Usuario extends BaseDatos{
-    private $idusu;
-    private $nombre;
-    private $pass;
-    private $mail;
-    private $deshabilitado;
+class Producto extends BaseDatos{
+    private $idproducto;
+    private $pronombre;
+    private $prodetalle;
+    private $procantstock;  
+    private $tipo;
+    private $precio;
     private $mensajeoperacion;
 
     public function __contruct(){
-        $this->idusu="";
-        $this->nombre="";
-        $this->pass="";
-        $this->mail="";
-        $this->deshabilitado="";
+        $this->idproducto="";
+        $this->pronombre="";
+        $this->prodetalle="";
+        $this->procantstock="";
+        $this->tipo="";
+        $this->precio="";
         $this->mensajeoperacion ="";
     }
-    public function setear($idusu, $nombre, $pass, $mail){
-        $this->setIdusuario($idusu);
-        $this->setUsnombre($nombre);
-        $this->setUspass($pass);
-        $this->setUsmail($mail);
+    public function setear($idproducto, $pronombre, $prodetalle, $procantstock, $tipo, $precio){
+        $this->setIdproducto($idproducto);
+        $this->setPronombre($pronombre);
+        $this->setProdetalle($prodetalle);
+        $this->setProcantstock($procantstock);
+        $this->setTipo($tipo);
+        $this->setPrecio($precio);
         }
-    public function getIdusuario(){
-        return $this->idusu;
+    public function getIdproducto(){
+        return $this->idproducto;
         
     }
-    public function setIdusuario($valor){
-        $this->idusu = $valor;
+    public function setIdproducto($valor){
+        $this->idproducto = $valor;
     }
-    public function getUsnombre(){
-        return $this->nombre;
+    public function getPronombre(){
+        return $this->pronombre;
         
     }
-    public function setUsnombre($valor){
-        $this->nombre = $valor;
+    public function setPronombre($valor){
+        $this->pronombre = $valor;
     }
-    public function getUspass  (){
-        return $this->pass;
+    public function getProdetalle  (){
+        return $this->prodetalle;
         
     }
-    public function setUspass($valor){
-        $this->pass = $valor;
+    public function setProdetalle($valor){
+        $this->prodetalle = $valor;
     }
-    public function getUsmail(){
-        return $this->mail;
+    public function getProcantstock(){
+        return $this->procantstock;
         
     }
-    public function setUsmail($valor){
-        $this->mail = $valor;
+    public function setProcantstock($valor){
+        $this->procantstock = $valor;
     }
-    public function getUsdeshabilitado(){
-        return $this->deshabilitado;
+    public function getTipo(){
+        return $this->tipo;
         
     }
-    public function setUsdeshabilitado($valor){
-        $this->deshabilitado = $valor;
+    public function setTipo($valor){
+        $this->tipo = $valor;
+    }
+    public function getPrecio(){
+        return $this->precio;
+        
+    }
+    public function setPrecio($valor){
+        $this->precio = $valor;
     }
     public function getmensajeoperacion(){
         return $this->mensajeoperacion;
@@ -66,17 +77,17 @@ class Usuario extends BaseDatos{
     public function cargar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM usuario WHERE idusuario = '".$this->getIdusuario()."'";
+        $sql = "SELECT * FROM producto WHERE idproducto = '".$this->getIdproducto()."'";
         if ($base->Iniciar()){
             $resp = $base->Ejecutar($sql);
             if($resp>-1){
                 if($resp>0){
                     $row = $base->Registro();
-                    $this->setear($row['idusuario'], $row['usnombre'], $row['uspass'],$row['usmail'], $row['usdeshabilitado']);
+                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock'], $row['tipo'], $row['precio']);
                 }
             }    
         } else {
-            $this->setmensajeoperacion("Usuario->listar: ". $base->getError());
+            $this->setmensajeoperacion("Producto->listar: ". $base->getError());
         }
         return $resp;
     }
@@ -84,27 +95,27 @@ class Usuario extends BaseDatos{
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        
+        echo "estoy en insertar de Producto";
         // se puede crear la variable usdeshab para registrar null en el campo usdeshabilitado
 
-        $usdeshab="null";
-        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsnombre()."','".$this->getUspass()."','".$this->getUsmail()."', '".$usdeshab."')";
-       //echo "Este es el sql para insertar <br>".$sql;
+        //$usdeshab="null";
+        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock, tipo, precio) VALUES (".$this->getPronombre().",'".$this->getProdetalle()."',".$this->getProcantstock().", '".$this->getTipo()."',".$this->getPrecio().");";
+       echo "Este es el sql para insertar <br>".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)){
-                $this->setIdusuario($elid);
+                $this->setIdproducto($elid);
                 $resp = true;
             }else{
-                $this->setmensajeoperacion("Usuario->insertar: ".$base->getError());
+                $this->setmensajeoperacion("Producto->insertar: ".$base->getError());
             }
 
         }else{
-            $this->setmensajeoperacion("Usuario->insertar: ".$base->getError());
+            $this->setmensajeoperacion("Producto->insertar: ".$base->getError());
         }
         return $resp;
     }
     
-    public function modificar($tipo){
+    /*public function modificar($tipo){
        // print_r($tipo);
         $resp = false;
         $base = new BaseDatos();
@@ -127,12 +138,12 @@ class Usuario extends BaseDatos{
             $this->setmensajeoperacion("Usuario->modificar: ".$base->getError());
         }
         return $resp;
-    }
+    }*/
 
     public static function listar($parametro=""){
         $arreglo = array();
         $base=new BaseDatos();
-        $sql = "SELECT * FROM usuario ";
+        $sql = "SELECT * FROM producto ";
         //echo $sql . " y el Parámetro es ";
         //print_r($parametro);
         if ($parametro!=""){
@@ -143,8 +154,8 @@ class Usuario extends BaseDatos{
         if ($res>-1){
             if ($res>0){
                 while ($row = $base->Registro()){
-                    $obj = new Usuario();
-                    $obj->buscar($row['idusuario']);
+                    $obj = new Producto();
+                    $obj->buscar($row['idproducto']);
                    // $obj->setear($row['idusuario'], $row['usnombre'], $row['uspass'],$row['usmail']);
                     array_push($arreglo, $obj);
                 }
@@ -157,28 +168,30 @@ class Usuario extends BaseDatos{
     }
     /**
    * Recupera los datos de la persona por numero de documento
-   * @param int idUsuario
+   * @param int idproducto
    * @return true en caso de encontrar los datos, false en caso contrario 
    */
-    public function buscar($idusuario){
+    public function buscar($idproducto){
         $base = new BaseDatos();
-        $sql = "SELECT * FROM usuario WHERE idusuario = ". $idusuario.";";
+        $sql = "SELECT * FROM producto WHERE idproducto = ". $idproducto.";";
         $resp = false;
         if ($base->Iniciar()){
             if ($base->Ejecutar($sql)){
                 if ($row = $base->Registro()){
 
-                    $this->setIdusuario($row['idusuario']);
-                    $this->setUsnombre($row['usnombre']);
-                    $this->setUspass($row['uspass']);
-                    $this->setUsmail($row['usmail']);
-                    if($row['usdeshabilitado']=="0000-00-00 00:00:00"){
+                    $this->setIdproducto($row['idproducto']);
+                    $this->setPronombre($row['pronombre']);
+                    $this->setProdetalle($row['prodetalle']);
+                    $this->setProcantstock($row['procantstock']);
+                    $this->setTipo($row['tipo']);
+                    $this->setPrecio($row['precio']);
+                    /*if($row['usdeshabilitado']=="0000-00-00 00:00:00"){
                         $usdeshab="habilitado";
                     }else{
                         $usdeshab="deshabilitado";
                     }
                     
-                    $this->setUsdeshabilitado($usdeshab);
+                    $this->setUsdeshabilitado($usdeshab);*/
                     $resp = true;
                     //echo $resp. "en buscar";
                 }

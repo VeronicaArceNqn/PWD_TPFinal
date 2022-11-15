@@ -1,9 +1,9 @@
 <?php
-class ABMusuario{
+class ABMproducto{
     //Espera como parámetro un arrego asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
     public function abm($datos){
         $resp = false;
-        if($datos['accion']=='editar'){
+       /* if($datos['accion']=='editar'){
             if($this->modificacion($datos)){
                 $resp = true;
             }
@@ -12,24 +12,24 @@ class ABMusuario{
             if($this->bajaLogica($datos)){
                 $resp =true;
             }
-        }
+        }*/
         if ($datos['accion'] == 'nuevo') {
-            $objUsuario=null;
-            if (isset($datos['usmail'])) {
-                $arraymail = ['usmail' => $datos['usmail']];
+            $objProducto=null;
+            if (isset($datos['pronombre'])) {
+                $arraymail = ['pronombre' => $datos['pronombre']];
                 //print_r($arraymail);
-                $objUsuario = $this->buscar($arraymail);
-                //echo "<br>objUsuario me devuelve de buscar : <br>";
-                //print_r($objUsuario);
+                $objProducto = $this->buscar($arraymail);
+                //echo "<br>objProducto me devuelve de buscar : <br>";
+                //print_r($objProducto);
             }
-            if ($objUsuario == null) {
+            if ($objProducto == null) {
                 // $mensajeResultado = $this->verificarUsuarioMail($datos);
                 //print_r($datos);
                 //print_r($mensajeResultado['Resultado']);
                 //if ($mensajeResultado==null) {
                     if (isset($datos['accion'])) {
                         //echo $datos['accion'];
-                       // print_r($datos);
+                        //print_r($datos);
                         if ($this->alta($datos)) {
                             $resp = true;
                         }
@@ -39,7 +39,7 @@ class ABMusuario{
                     }*/
             }
             else {
-                echo "El correo electrónico ya esta registrado";
+                echo "El Producto ya esta registrado";
             }
         }
 
@@ -51,29 +51,29 @@ class ABMusuario{
      /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
     *@param array $param
-    *@return Usuario
+    *@return Producto
     */
     private function cargarObjeto($param){
         $obj = null;
 
-        if (array_key_exists('idusuario', $param) and array_key_exists('usnombre', $param) and array_key_exists('uspass', $param) and array_key_exists('usmail', $param) ){
-            $obj = new Usuario();
-            $obj->setear($param['idusuario'], $param['usnombre'], $param['uspass'], $param['usmail']);
+        if (array_key_exists('idproducto', $param) and array_key_exists('pronombre', $param) and array_key_exists('prodetalle', $param) and array_key_exists('procantstock', $param) and array_key_exists('tipo', $param) and array_key_exists('precio', $param) ){
+            $obj = new Producto();
+            $obj->setear($param['idproducto'], $param['pronombre'], $param['prodetalle'], $param['procantstock'], $param['tipo'], $param['precio']);
         }
-        //print_r($obj);
+        print_r($obj);
         return $obj;
     }
     
      /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
-     * @return Usuario
+     * @return Producto
      */
     private function cargarObjetoConClave($param){
         $obj = null;
-        if(isset($param['idusuario'])){
-            $obj = new Usuario();
-            $obj->setear($param['idusuario'], null, null, null, null);
+        if(isset($param['idproducto'])){
+            $obj = new Producto();
+            $obj->setear($param['idproducto'], null, null, null, null, null);
         }
         return $obj;
     }
@@ -85,18 +85,18 @@ class ABMusuario{
 
      private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['idusuario']))
+        if (isset($param['idproducto']))
             $resp = true;
         //echo "SeteadosCamposClaves". $resp;
         return $resp;
      }
      public function alta($param){
-        //print_r($param);
+        print_r($param);
         $resp = false;
-        $param['idusuario']=null;
+        $param['idproducto']=null;
 
-        $elObjUsuario = $this->cargarObjeto($param);
-        if ($elObjUsuario!=null and $elObjUsuario->insertar()){
+        $elObjProducto = $this->cargarObjeto($param);
+        if ($elObjProducto!=null and $elObjProducto->insertar()){
             $resp = true;
         }
         return $resp;
@@ -107,32 +107,33 @@ class ABMusuario{
      * @return boolean
      */
     
-    public function bajaLogica($param){
+    /*public function bajaLogica($param){
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
-            $elObjUsuario = $this->cargarObjetoConClave($param);
-            if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
+            $elObjProducto = $this->cargarObjetoConClave($param);
+            if($elObjProducto!=null and $elObjProducto->modificar($param)){
                 $resp = true;
             }
         }
         return $resp;
-    }
+    }*/
      /**
      * permite modificar un objeto
      * @param array $param
      * @return boolean
      */
-    public function modificacion($param){
+   /* public function modificacion($param){
         $resp = false;
         if($this->seteadosCamposClaves ($param)){
-            $elObjUsuario = $this->cargarObjeto($param);
+            $elObjProducto = $this->cargarObjeto($param);
             //print_r($param);
-            if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
+            if($elObjProducto!=null and $elObjProducto->modificar($param)){
                 $resp = true;
             }
         }
         return $resp;
     }
+    
     /**
      * permite buscar un objeto
      * @param array $param
@@ -140,35 +141,34 @@ class ABMusuario{
      */
     public function buscar($param){
         $where = " true ";
-        //echo "Este dato ingresa a Buscar en ABMusuario";
+        //echo "Este dato ingresa a Buscar en ABMproducto";
         
         //print_r($param);
         //echo "<br>";
         //print_r ($param['usmail']);
         if($param<>NULL){
-            if(isset($param['idusuario'])) 
-                $where.=" and idusuario = ".$param['idusuario'];
-            if(isset($param['usnombre'])) 
-                $where.=" and usnombre ='".$param['usnombre']."'";
-            if(isset($param['uspass'])) 
-                $where.=" and uspass ='".$param['uspass']."'";
-            if(isset($param['usmail'])) 
-                $where.=" and usmail ='".$param['usmail']."'";
+            if(isset($param['idproducto'])) 
+                $where.=" and idproducto = ".$param['idproducto'];
+            if(isset($param['pronombre'])) 
+                $where.=" and pronombre ='".$param['pronombre']."'";
+            if(isset($param['prodetalle'])) 
+                $where.=" and prodetalle ='".$param['prodetalle']."'";
+            
         }
         //print_r($where);
         //echo "<br>";
-        $arreglo = Usuario::listar($where);
+        $arreglo = Producto::listar($where);
         //echo "Estoy en buscar \n";
         //print_r($arreglo);
     
         return $arreglo;
        }
       /**
-     * Busca un objeto usuario, 
+     * Busca un objeto producto, 
      * @param array $param
-     * @return Usuario 
+     * @return Producto 
      */
-    public function verificarUsuarioMail($datos)
+    /*public function verificarUsuarioMail($datos)
     {
         $objUsuario = NULL;
         $listaUsuario = $this->buscar($datos);
@@ -180,22 +180,7 @@ class ABMusuario{
         echo "retorno de verificar usuario : ";
         print_r($objUsuario);
         return $objUsuario;
-    }
-    
-    public function darRoles($param)
-    {
-        $where = " true ";
-        if ($param <> NULL) {
-            if (isset($param['idusuario']))
-                $where .= " and idusuario =" . $param['idusuario'];
-            if (isset($param['idrol']))
-                $where .= " and idrol ='" . $param['idrol'] . "'";
-        }
-        $obj = new UsuarioRol();
-        $arreglo = $obj->listar($where);
-        //echo "Van ".count($arreglo);
-        return $arreglo;
-    }
+    }*/
 }
 
 

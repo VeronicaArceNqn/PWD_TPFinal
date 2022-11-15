@@ -74,7 +74,8 @@ class Rol extends BaseDatos
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO rol(rodescripcion)  VALUES('".$this->getRodescripcion()."');";
+        $sql="INSERT INTO rol(rodescripcion) VALUES ('".$this->getRodescripcion()."');";
+        //echo "Insertar ".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)) {
                 $this->setIdrol($elid);
@@ -122,13 +123,16 @@ class Rol extends BaseDatos
     }
     */
     public static function listar($parametro=""){
+
         $arreglo = array();
         $base=new BaseDatos();
         $sql="SELECT * FROM rol ";
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
         }
+       // echo $sql;
         $res = $base->Ejecutar($sql);
+        
         if($res>-1){
             if($res>0){
                 

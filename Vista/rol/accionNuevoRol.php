@@ -15,7 +15,7 @@ include_once '../../configuracion.php';
     $resp = false;
     $objAbmRol= new ABMrol();
 
-    $botonAuto='';
+   
 
     if (isset($datos['accion'])) {
        
@@ -33,25 +33,23 @@ include_once '../../configuracion.php';
 
     }
         if ($resp) {
-            $mensaje = "La accion " . $datos['accion'] . " se realizo correctamente.";
+            $mensaje = "La accion " . $datos['accion'] . " Rol se realizo correctamente.";
           //  header('Refresh: 5;URL=NuevaPersona.php');
-           $botonAuto='<div class="col-md-3 pb-3">
-           <a href="NuevoAuto.php"class="btn btn-warning d-grid gap-2 pl-0 mx-auto col-6 pt-2 text-center">Cargar Auto</a>
-            </div>';
+        
     
         } else {
-            $mensaje = "La accion " . $datos['accion'] . " no pudo concretarse.";
+            $mensaje = "La accion " . $datos['accion'] . " Rol no pudo concretarse.";
             //echo $objABMPersona->getmensajeoperacion();
         }
 
         echo "<H4 class='text-center bg-success text-light'>$mensaje</H4>";
         ?>
         <?php
-    echo $botonAuto;
+   
     ?>
     
        <div class="col-md-3">
-            <a href="../registroRol.php"class="btn btn-secondary d-grid gap-2 pl-0 mx-auto col-6 pt-2">Volver</a>
+            <a href="listarRol.php"class="btn btn-secondary d-grid gap-2 pl-0 mx-auto col-6 pt-2">Volver</a>
         </div>
 </div>
 </div>
