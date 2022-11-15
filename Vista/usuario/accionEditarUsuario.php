@@ -17,9 +17,8 @@ include_once '../../configuracion.php';
 
     $botonAuto='';
 
-    if (isset($datos['accion'])) {
-       
-        if (isset($datos['accion'])){
+    
+        if (isset($datos['idusuario'])){
             // abm() en ABMUsuario controla la accion nuevo y editar.
             $resp = $objAbmUsuario->abm($datos);
             if($resp){
@@ -30,7 +29,7 @@ include_once '../../configuracion.php';
             //echo $mensaje;
            // echo("<script>location.href = './index.php?msg=$mensaje';</script>");
         }
-    }
+    
         if ($resp) {
             $mensaje = "La accion " . $datos['accion'] . " contraseña se realizó correctamente.";
           //  header('Refresh: 5;URL=NuevaPersona.php');

@@ -104,7 +104,7 @@ class Usuario extends BaseDatos{
         return $resp;
     }
     
-    public function modificar($tipo){
+    public function modificar($tipo=""){
        // print_r($tipo);
         $resp = false;
         $base = new BaseDatos();

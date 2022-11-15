@@ -111,7 +111,7 @@ class ABMusuario{
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
             $elObjUsuario = $this->cargarObjetoConClave($param);
-            if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
+            if($elObjUsuario!=null and $elObjUsuario->modificar("borradoLogico")){
                 $resp = true;
             }
         }
@@ -127,7 +127,7 @@ class ABMusuario{
         if($this->seteadosCamposClaves ($param)){
             $elObjUsuario = $this->cargarObjeto($param);
             //print_r($param);
-            if($elObjUsuario!=null and $elObjUsuario->modificar($param)){
+            if($elObjUsuario!=null and $elObjUsuario->modificar()){
                 $resp = true;
             }
         }
