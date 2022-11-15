@@ -99,7 +99,7 @@ class Producto extends BaseDatos{
         // se puede crear la variable usdeshab para registrar null en el campo usdeshabilitado
 
         //$usdeshab="null";
-        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock, tipo, precio) VALUES (".$this->getPronombre().",'".$this->getProdetalle()."',".$this->getProcantstock().", '".$this->getTipo()."',".$this->getPrecio().");";
+        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock, tipo, precio) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this->getProcantstock().", '".$this->getTipo()."',".$this->getPrecio().");";
        echo "Este es el sql para insertar <br>".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)){
