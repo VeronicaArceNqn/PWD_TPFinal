@@ -1,8 +1,8 @@
 <?php 
 $dir="../";
 $titulo =" Registro Usuario ";
-include_once $dir."../Vista/estructura/cabecera.php";
-include_once '../../configuracion.php';
+include_once '../estructura/cabecera.php';
+//include_once '../../configuration.php';
 
 ?>
 <link rel="stylesheet" href="../Vista/css/bootstrap/4.5.2/bootstrap.min.css">
@@ -58,6 +58,6 @@ include_once '../../configuracion.php';
  </div>
  </div>
  <?php
-include ("../../Vista/estructura/pie.php");
+include_once '../estructura/pie.php';
 ?>
 </div>
