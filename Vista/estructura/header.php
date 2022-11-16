@@ -79,12 +79,12 @@ include_once "../../configuracion.php";
 	</div>
     <div id="mm4">
        
-        <div href="../menu/listaMenu.php" style="text-decoration:none;"> GestionarMenu
+        <div href="../menu/listaMenu.php"> GestionarMenu
 	</div>
 		<div>Supervisar compra</div>
 	</div>
 	<div id="mm5">
-        <div  href="../usuario/listaUsuario.php" style="text-decoration:none;">Registrar Usuario
+        <div  href="../usuario/listaUsuario.php">Registrar Usuario
 </div>
         <div>Rol</div>
         <div>Menu</div>

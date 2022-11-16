@@ -82,9 +82,9 @@ include_once $dir."../estructura/header.php";
             }
             function saveUsuario(){
                 var password =  $('#uspass').val();
-               alert(password);
+               //alert(password);
                var passhash = CryptoJS.MD5(password).toString();
-               alert("passhash:"+passhash);
+               //alert("passhash:"+passhash);
                 $('#uspass').val(passhash);
                 $('#fm').form('submit',{
                     url: url,
@@ -137,3 +137,6 @@ include_once $dir."../estructura/header.php";
 	<!-- Cuerpo del formulario-->
 
 	<!-- -->
+    <?php 
+include_once $dir."../estructura/footer.php";
+?>

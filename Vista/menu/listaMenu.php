@@ -126,7 +126,16 @@ $combo .='</select>';
             }
             </script>
     
-	
+    <script>
+		function setalign(align){
+			$('a.easyui-menubutton').menubutton({
+				menuAlign: left
+			})
+		}
+	</script>
 	<!-- Cuerpo del formulario-->
 
 	<!-- -->
+<?php 
+include_once $dir."../estructura/footer.php";
+?>
