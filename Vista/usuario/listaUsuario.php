@@ -5,7 +5,7 @@ include_once $dir."../estructura/header.php";
 ?>
 
     <div style="padding-left:20px;padding-right:25px;padding-top:40px">
-<table id="dg" title="Administrador de item menu" class="easyui-datagrid" style="width:100%;height:550px"
+<table id="dg" title="Administrador de usuarios" class="easyui-datagrid" style="width:100%;height:550px"
     url="accion/listar_usuario.php" toolbar="#toolbar" pagination="true"rownumbers="true" fitColumns="true" singleSelect="true">
             <thead>
             <tr>
@@ -17,14 +17,14 @@ include_once $dir."../estructura/header.php";
             </thead>
             </table>
             <div id="toolbar">
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newMenu()">Nuevo Usuario </a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMenu()">Editar Usuario</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMenu()">Baja Usuario</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUsuario()">Nuevo Usuario </a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUsuario()">Editar Usuario</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUsuario()">Baja Usuario</a>
             </div>
             
             <div id="dlg" class="easyui-dialog" style="width:600px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
             <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
-            <h3>Menu Informacion</h3>
+            <h3>Informacion usuario</h3>
             <div style="margin-bottom:10px">
             
                       
@@ -43,27 +43,49 @@ include_once $dir."../estructura/header.php";
             </div>
             </div>
             <div id="dlg-buttons">
-            <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveMenu()" style="width:90px">Aceptar</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUsuario();" style="width:90px">Aceptar</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancelar</a>
             </div>
-           
+            <script>
+            function encriptar(){
+                var password =  $('#uspass').val();
+               // alert(password);
+                var passhash = CryptoJS.MD5(password).toString();
+               // alert("passhash:"+passhash);
+                $('#uspass').val(passhash);
+               // document.getElementById("uspass").value = passhash;
+
+    /*setTimeout(function(){ 
+        document.getElementById("fm").submit();
+
+	}, 500);
+*/
+            }
+
+        </script>
             <script type="text/javascript">
             var url;
-            function newMenu(){
+            function newUsuario(){
+          
+                            
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Nuevo Usuario');
                 $('#fm').form('clear');
                 url = 'accion/alta_usuario.php';
             }
-            function editMenu(){
+            function editUsuario(){
                 var row = $('#dg').datagrid('getSelected');
                 if (row){
                     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Editar Usuario');
                     $('#fm').form('load',row);
-                    url = 'accion/edit_usuario.php?accion=mod&idusuario='+row.idmenu;
+                    url = 'accion/edit_usuario.php?idusuario='+row.idusuario;
                 }
             }
-            function saveMenu(){
-            	//alert(" Accion");
+            function saveUsuario(){
+                var password =  $('#uspass').val();
+               alert(password);
+               var passhash = CryptoJS.MD5(password).toString();
+               alert("passhash:"+passhash);
+                $('#uspass').val(passhash);
                 $('#fm').form('submit',{
                     url: url,
                     onSubmit: function(){
@@ -86,12 +108,12 @@ include_once $dir."../estructura/header.php";
                     }
                 });
             }
-            function destroyMenu(){
+            function destroyUsuario(){
                 var row = $('#dg').datagrid('getSelected');
                 if (row){
                     $.messager.confirm('Confirm','Seguro que desea eliminar el usuario?', function(r){
                         if (r){
-                            $.post('accion/eliminar_usuario.php?accion=borradoLogico&idusuario='+row.idmenu,{idmenu:row.id},
+                            $.post('accion/eliminar_usuario.php?idusuario='+row.idusuario,{idusuario:row.id},
                                function(result){
                                	 alert("Volvio Serviodr");   
                                  if (result.respuesta){
@@ -111,6 +133,7 @@ include_once $dir."../estructura/header.php";
             </script>
     
 	
+ 
 	<!-- Cuerpo del formulario-->
 
 	<!-- -->

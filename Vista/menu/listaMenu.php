@@ -75,7 +75,7 @@ $combo .='</select>';
                 if (row){
                     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Editar Menu');
                     $('#fm').form('load',row);
-                    url = 'accion/edit_menu.php?accion=mod&idmenu='+row.idmenu;
+                    url = 'accion/edit_menu.php?idmenu='+row.idmenu;
                 }
             }
             function saveMenu(){
@@ -88,7 +88,7 @@ $combo .='</select>';
                     success: function(result){
                         var result = eval('('+result+')');
 
-                        alert("Volvio Serviodr");   
+                        alert("Volvio Servidor");   
                         if (!result.respuesta){
                             $.messager.show({
                                 title: 'Error',
@@ -107,7 +107,7 @@ $combo .='</select>';
                 if (row){
                     $.messager.confirm('Confirm','Seguro que desea eliminar el menu?', function(r){
                         if (r){
-                            $.post('accion/eliminar_menu.php?accion=borradoLogico&idmenu='+row.idmenu,{idmenu:row.id},
+                            $.post('accion/eliminar_menu.php?idmenu='+row.idmenu,{idmenu:row.id},
                                function(result){
                                	 alert("Volvio Serviodr");   
                                  if (result.respuesta){

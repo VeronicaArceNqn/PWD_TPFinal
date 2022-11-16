@@ -108,7 +108,7 @@ class Usuario extends BaseDatos{
        // print_r($tipo);
         $resp = false;
         $base = new BaseDatos();
-        if($tipo['accion'] == "borradoLogico"){
+        if($tipo == "borradoLogico"){
             $fechaActual=Date("Y-m-d h:i:s");
             //echo date("Y-m-d h:i:s");
             $sql="UPDATE usuario SET usdeshabilitado = '$fechaActual' WHERE idusuario = ".$this->getIdusuario()."";

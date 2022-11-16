@@ -182,14 +182,16 @@ class Menu {
     public function modificar($tipo=""){
         $resp = false;
         $base=new BaseDatos();
-        $sql="UPDATE menu SET menombre='".$this->getMenombre()."',medescripcion='".$this->getMedescripcion()."'";
-
+      
         if($tipo == "borradoLogico"){
             $fechaActual=Date("Y-m-d h:i:s");
             //echo date("Y-m-d h:i:s");
-            $sql="UPDATE menu SET medeshabilitado = '$fechaActual' WHERE idmenu = ".$this->getIdmenu()."";
+            $sql="UPDATE menu SET medeshabilitado = '".$fechaActual."' WHERE idmenu = ".$this->getIdmenu()."";
         }
-        else {if ($this->getObjMenu()!= null)
+        else {
+            $sql="UPDATE menu SET menombre='".$this->getMenombre()."',medescripcion='".$this->getMedescripcion()."'";
+
+            if ($this->getObjMenu()!= null)
             $sql.=",idpadre= ".$this->getObjMenu()->getIdmenu();
          else
             $sql.=",idpadre= null";
