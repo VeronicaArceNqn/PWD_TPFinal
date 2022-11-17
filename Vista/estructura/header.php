@@ -31,7 +31,7 @@ include_once "../../configuracion.php";
 	</div>
     </div>
 	<!--<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>-->
-	<div data-options="region:'east',split:false,collapsed:true,title:'LOGIN'" style="width:200px;padding:10px;"> Datos de sesion</div>
+	<div data-options="region:'east',split:false,collapsed:true,title:'Perfil'" style="width:200px;padding:10px;"> Datos de usuario</div>
 	<div data-options="region:'south',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
 	<div data-options="region:'south2',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
 
@@ -46,7 +46,7 @@ include_once "../../configuracion.php";
 		<a href="#" class="easyui-menubutton"  style="padding:5px; background-color:#0d6efd;color:white;" data-options="menu:'#mm2'">Equipos</a>
 		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#0d6efd;color:white;" data-options="menu:'#mm3'">Accesorios</a>
         <a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm4'">Administración</a>
-		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm5'">Gestión de usuario</a>
+		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm5'">Gestión de deposito</a>
 		<!--<div id="cantProductos"style="float:right;font-size:27px;">0</div>-->
 	</div>
 	<div id="mm1" style="width:150px;">
@@ -81,15 +81,19 @@ include_once "../../configuracion.php";
 	</div>
     <div id="mm4">
        
-        <div href="../menu/listaMenu.php"> GestionarMenu
+        <div href="../menu/listaMenu.php"> Editar Menu
 	</div>
-		<div>Supervisar compra</div>
-	</div>
-	<div id="mm5">
-        <div  href="../usuario/listaUsuario.php">Registrar Usuario
-</div>
-        <div>Rol</div>
+	<div  href="../usuario/listaUsuario.php">Registrar Usuario	</div>
+		<div>Rol</div>
         <div>Menu</div>
 		<div>Producto</div>
-		<div>Supervisar compra</div>
+	</div>
+
+
+	<div id="mm5">
+	<div>Supervisar compra</div>
+	<div>Actualizar stock</div>
+        
+</div>
+        
 	</div>

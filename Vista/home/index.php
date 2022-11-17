@@ -131,7 +131,7 @@ include ($dir."../estructura/header.php");
 </div>
 <div class="card">
 <div class="contenedorImg">
-  <img src="../../uploads/XVR1A04.webp" alt="Denim Jeans" class="imagen">
+  <img src="../../uploads/E2.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
 <p class="precioProducto">34000 $</p>
         <a class="titulo" href="#" onclick="">DVR Dahua 4108</a>
@@ -140,7 +140,7 @@ include ($dir."../estructura/header.php");
 </div>
 <div class="card">
 <div class="contenedorImg">
-  <img src="../../uploads/XVR1A041.png" alt="Denim Jeans" class="imagen">
+  <img src="../../uploads/E1.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
 <p class="precioProducto">24000 $</p>
         <a class="titulo" href="#" onclick="">Camara Dahua 4104</a>
