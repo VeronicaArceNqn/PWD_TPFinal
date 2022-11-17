@@ -83,21 +83,21 @@ include_once $dir."../estructura/header.php";
             function saveUsuario(){
                 var password =  $('#uspass').val();
                //alert(password);
-               var passhash = CryptoJS.MD5(password).toString();
+               //var passhash = CryptoJS.MD5(password).toString();
                //alert("passhash:"+passhash);
-                $('#uspass').val(passhash);
+              //  $('#uspass').val(passhash);
                 $('#fm').form('submit',{
                     url: url,
                     onSubmit: function(){
                         return $(this).form('validate');
                     },
                     success: function(result){
-                        var result = eval('('+result+')');
+                      var result = eval('('+result+')');
 
                         alert("Volvio Serviodr");   
                         if (!result.respuesta){
                             $.messager.show({
-                                title: 'Error',
+                                title: 'Error'+result.errorMsg,
                                 msg: result.errorMsg
                             });
                         } else {

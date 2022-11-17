@@ -14,7 +14,7 @@ if (isset($data['idmenu'])){
     
 }
 $retorno['respuesta'] = $respuesta;
-if (isset($mensaje)){
+if (isset($sms_error)){
     
     $retorno['errorMsg']=$sms_error;
     

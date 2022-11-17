@@ -21,7 +21,7 @@ include_once "../../configuracion.php";
 <body class="easyui-layout">
 <div data-options="region:'north',border:false" style="height:200px;background:#fff;padding:10px">
 	
-     <div id="logo" align="center"style="width: 100%;height: 180px;background-image: url('../images/logo-sis-text-2-(800p).png');
+     <div id="logo" align="center"style="width: 100%;height: 180px;background-image: url('../css/images/logo-sis-text-2-(800p).png');
   background-repeat: no-repeat;
   background-size: contain;
    background-position: center center;
@@ -33,9 +33,11 @@ include_once "../../configuracion.php";
 	<!--<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>-->
 	<div data-options="region:'east',split:false,collapsed:true,title:'LOGIN'" style="width:200px;padding:10px;"> Datos de sesion</div>
 	<div data-options="region:'south',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
+	<div data-options="region:'south2',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
 
 
-  <div data-options="region:'center',title:''">
+
+  <div data-options="region:'center',title:''" style="height: 800px;">
   <div>
 	
 	<div class="easyui-panel" style="padding:5px; background-color:#0d6efd;color:white; width:100%;text-decoration:none;">
