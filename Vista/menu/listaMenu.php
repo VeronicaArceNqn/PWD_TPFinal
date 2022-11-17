@@ -64,35 +64,35 @@ $combo .='</select>';
             </div>
            
             <script type="text/javascript">
-            var url;
+            var urlDatos,url1,url2;;
             function newMenu(){
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Nuevo Menu');
                 $('#fm').form('clear');
-                url = 'accion/alta_menu.php';
+                urlDatos= 'accion/alta_menu.php';
             }
             function editMenu(){
                 var row = $('#dg').datagrid('getSelected');
                 if (row){
                     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Editar Menu');
                     $('#fm').form('load',row);
-                    url = 'accion/edit_menu.php?idmenu='+row.idmenu;
+                    urlDatos= 'accion/edit_menu.php?accion=mod&idmenu='+row.idmenu;
                 }
             }
             function saveMenu(){
             	//alert(" Accion");
                 $('#fm').form('submit',{
-                    url: url,
+                    url:urlDatos,
                     onSubmit: function(){
                         return $(this).form('validate');
                     },
                     success: function(result){
                         var result = eval('('+result+')');
 
-                        alert("Volvio Servidor");   
+                        alert("Volvio Servidor"+result.errorMsg);   
                         if (!result.respuesta){
                             $.messager.show({
                                 title: 'Error',
-                                msg: result.errorMsg
+                                msg: 'No se'
                             });
                         } else {
                            
@@ -126,13 +126,7 @@ $combo .='</select>';
             }
             </script>
     
-    <script>
-		function setalign(align){
-			$('a.easyui-menubutton').menubutton({
-				menuAlign: left
-			})
-		}
-	</script>
+   
 	<!-- Cuerpo del formulario-->
 
 	<!-- -->
