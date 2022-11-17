@@ -83,7 +83,7 @@ include ($dir."../estructura/header.php");
   <img src="../../uploads/C1-2.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
 <p class="precioProducto">20000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 3mpx</a>
+        <a class="titulo" href="#" onclick="">Camara Dahua 2mpx</a>
 
   <p><button>Agregar</button></p>
 </div>
@@ -91,7 +91,7 @@ include ($dir."../estructura/header.php");
 <div class="contenedorImg">
   <img src="../../uploads/C3.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
-<p class="precioProducto">18000 $</p>
+<p class="precioProducto">21000 $</p>
         <a class="titulo" href="#" onclick="">Camara Dahua 3mpx</a>
   <p><button>Agregar</button></p>
 </div>
@@ -99,8 +99,8 @@ include ($dir."../estructura/header.php");
 <div class="contenedorImg">
   <img src="../../uploads/C2.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
-<p class="precioProducto">20000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 3mpx</a>
+<p class="precioProducto">23000 $</p>
+        <a class="titulo" href="#" onclick="">Camara Dahua 4mpx</a>
   
   <p><button>Agregar</button></p>
 </div>
@@ -116,7 +116,7 @@ include ($dir."../estructura/header.php");
 <div class="contenedorImg">
   <img src="../../uploads/c5.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
-<p class="precioProducto">25000 $</p>
+<p class="precioProducto">26000 $</p>
         <a class="titulo" href="#" onclick="">Camara Dahua 5mpx</a>
   <p><button>Agregar</button></p>
 </div>
@@ -125,7 +125,7 @@ include ($dir."../estructura/header.php");
   <img src="../../uploads/A1.webp" alt="Denim Jeans" class="imagen">
 </div><h2>WD</h2>
 <p class="precioProducto">24000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 4mpx</a>
+        <a class="titulo" href="#" onclick="">Disco duro WD Purple 1TB</a>
  
   <p><button>Agregar</button></p>
 </div>
@@ -133,8 +133,8 @@ include ($dir."../estructura/header.php");
 <div class="contenedorImg">
   <img src="../../uploads/XVR1A04.webp" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
-<p class="precioProducto">24000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 4mpx</a>
+<p class="precioProducto">34000 $</p>
+        <a class="titulo" href="#" onclick="">DVR Dahua 4108</a>
  
   <p><button>Agregar</button></p>
 </div>
@@ -143,7 +143,7 @@ include ($dir."../estructura/header.php");
   <img src="../../uploads/XVR1A041.png" alt="Denim Jeans" class="imagen">
 </div><h2>Dahua</h2>
 <p class="precioProducto">24000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 4mpx</a>
+        <a class="titulo" href="#" onclick="">Camara Dahua 4104</a>
  
   <p><button>Agregar</button></p>
 </div>
