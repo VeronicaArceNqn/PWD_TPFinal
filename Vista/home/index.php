@@ -8,9 +8,9 @@ include ($dir."../estructura/header.php");
 .card {
    
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 425px;
-  width: 425px;
-  margin: 15px;
+ width: 420px;
+  
+  margin: 20px;
   text-align: center;
   font-family: arial;
    float:left;
