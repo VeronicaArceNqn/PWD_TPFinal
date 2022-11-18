@@ -86,7 +86,8 @@ include_once "../../configuracion.php";
 	<div  href="../usuario/listaUsuario.php">Registrar Usuario	</div>
 		<div>Rol</div>
         <div href="../menu/formMenu.php">Menu</div>
-		<div>Producto</div>
+		<div href="../producto/formProducto.php">Form Producto</div>
+		<div href="../producto/listaProducto.php">Producto</div>
 	</div>
 
 

@@ -17,8 +17,7 @@ class ABMproducto{
             $objProducto=null;
             if (isset($datos['pronombre'])) {
                 $arraymail = ['pronombre' => $datos['pronombre']];
-                //print_r($arraymail);
-                $objProducto = $this->buscar($arraymail);
+                
                 //echo "<br>objProducto me devuelve de buscar : <br>";
                 //print_r($objProducto);
             }
@@ -56,11 +55,11 @@ class ABMproducto{
     private function cargarObjeto($param){
         $obj = null;
 
-        if (array_key_exists('idproducto', $param) and array_key_exists('pronombre', $param) and array_key_exists('prodetalle', $param) and array_key_exists('procantstock', $param) and array_key_exists('tipo', $param) and array_key_exists('precio', $param) ){
+        if (array_key_exists('idproducto', $param) and array_key_exists('pronombre', $param) and array_key_exists('prodetalle', $param) and array_key_exists('procantstock', $param) and array_key_exists('tipo', $param) and array_key_exists('precio', $param) and array_key_exists('urlimagen', $param) ){
             $obj = new Producto();
-            $obj->setear($param['idproducto'], $param['pronombre'], $param['prodetalle'], $param['procantstock'], $param['tipo'], $param['precio']);
+            $obj->setear($param['idproducto'], $param['pronombre'], $param['prodetalle'], $param['procantstock'], $param['tipo'], $param['precio'], $param['urlimagen']);
         }
-        print_r($obj);
+       // print_r($obj);
         return $obj;
     }
     
@@ -73,7 +72,7 @@ class ABMproducto{
         $obj = null;
         if(isset($param['idproducto'])){
             $obj = new Producto();
-            $obj->setear($param['idproducto'], null, null, null, null, null);
+            $obj->setear($param['idproducto'], null, null, null, null, null,null);
         }
         return $obj;
     }
@@ -122,7 +121,7 @@ class ABMproducto{
      * @param array $param
      * @return boolean
      */
-   /* public function modificacion($param){
+    public function modificacion($param){
         $resp = false;
         if($this->seteadosCamposClaves ($param)){
             $elObjProducto = $this->cargarObjeto($param);
@@ -134,11 +133,11 @@ class ABMproducto{
         return $resp;
     }
     
-    /**
-     * permite buscar un objeto
-     * @param array $param
-     * @return array
-     */
+  /**
+   * Recupera los datos de la persona por numero de documento
+   * @param int idproducto
+   * @return array en caso de encontrar los datos, false en caso contrario 
+   */
     public function buscar($param){
         $where = " true ";
         //echo "Este dato ingresa a Buscar en ABMproducto";

@@ -78,6 +78,7 @@ $combo .='</select>';
                 var row = $('#dg').datagrid('getSelected');
                 if (row){
                     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Editar Menu');
+                    //carga los datos de la fila seleccionada del datag
                     $('#fm').form('load',row);
                     url = 'accion/edit_menu.php'
                 }
@@ -92,9 +93,10 @@ $combo .='</select>';
                     success: function(result){
                         var result = eval('('+result+')');
 
-                        alert("Volvio Serviodr"); 
+                      //  alert("Volvio Serviodr"); 
+                        //recorremos el array resultante
                         $.each(result, function(key, value){
-            alert(key + ": " + value + '<br>');
+            alert(key + ": " + value);
         });  
                         if (!result.respuesta){
                             $.messager.show({
