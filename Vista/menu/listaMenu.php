@@ -4,8 +4,21 @@ $titulo ="Gestión de menu";
 include_once $dir."../estructura/header.php";
 ?>
 
-    <div style="padding-left:20px;padding-right:25px;padding-top:40px">
-<table id="dg" title="Administrador de item menu" class="easyui-datagrid" style="width:100%;height:550px"
+             <?php 
+
+$objControl = new AbmMenu();
+$List_Menu = $objControl->buscar(null);
+$combo = '<select class="easyui-combobox"  id="idpadre"  name="idpadre" label="Submenu de?:" labelPosition="top" style="width:90%;">
+<option value="null"></option>';
+foreach ($List_Menu as $objMenu){
+    $combo .='<option value="'.$objMenu->getIdmenu().'">'.$objMenu->getMenombre().':'.$objMenu->getMedescripcion().'</option>';
+}
+
+$combo .='</select>';
+?>
+
+<div style="padding-left:20px;padding-right:25px;padding-top:40px">
+<table id="dg" title="Administrador de item menu" class="easyui-datagrid" style="width:100%;height:auto;"
     url="accion/listar_menu.php" toolbar="#toolbar" pagination="true"rownumbers="true" fitColumns="true" singleSelect="true">
             <thead>
             <tr>
@@ -29,6 +42,11 @@ include_once $dir."../estructura/header.php";
             <div style="margin-bottom:10px">
             
                       
+            <input name="idmenu" id="idmenu"  class="easyui-textbox" hidden="true" label="ID menu:" style="width:100%;" readonly>
+            </div>
+            <div style="margin-bottom:10px">
+            
+                      
             <input name="menombre" id="menombre"  class="easyui-textbox" required="true" label="Nombre:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
@@ -36,63 +54,52 @@ include_once $dir."../estructura/header.php";
             </div>
             <div style="margin-bottom:10px">
             <?php 
-
-$objControl = new AbmMenu();
-$List_Menu = $objControl->buscar(null);
-$combo = '<select class="easyui-combobox"  id="idpadre"  name="idpadre" label="Submenu de?:" labelPosition="top" style="width:90%;">
-<option></option>';
-foreach ($List_Menu as $objMenu){
-    $combo .='<option value="'.$objMenu->getIdmenu().'">'.$objMenu->getMenombre().':'.$objMenu->getMedescripcion().'</option>';
-}
-
-$combo .='</select>';
-?>
-            <?php 
                 echo $combo;
             ?>
              
             </div>
               <div style="margin-bottom:10px">
-            <input class="easyui-checkbox" name="medeshabilitado" value="medeshabilitado" label="Des-Habilitar:">
+            <input class="easyui-checkbox" name="medeshabilitado" value="null" label="Des-Habilitar:">
         </div>
             </form>
-            </div>
             </div>
             <div id="dlg-buttons">
             <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveMenu()" style="width:90px">Aceptar</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancelar</a>
             </div>
-           
             <script type="text/javascript">
-            var urlDatos,url1,url2;;
+            var url;
             function newMenu(){
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Nuevo Menu');
                 $('#fm').form('clear');
-                urlDatos= 'accion/alta_menu.php';
+                url = 'accion/alta_menu.php';
             }
             function editMenu(){
                 var row = $('#dg').datagrid('getSelected');
                 if (row){
                     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Editar Menu');
                     $('#fm').form('load',row);
-                    urlDatos= 'accion/edit_menu.php?accion=mod&idmenu='+row.idmenu;
+                    url = 'accion/edit_menu.php'
                 }
             }
             function saveMenu(){
             	//alert(" Accion");
                 $('#fm').form('submit',{
-                    url:urlDatos,
+                    url: url,
                     onSubmit: function(){
                         return $(this).form('validate');
                     },
                     success: function(result){
                         var result = eval('('+result+')');
 
-                        alert("Volvio Servidor"+result.errorMsg);   
+                        alert("Volvio Serviodr"); 
+                        $.each(result, function(key, value){
+            alert(key + ": " + value + '<br>');
+        });  
                         if (!result.respuesta){
                             $.messager.show({
                                 title: 'Error',
-                                msg: 'No se'
+                                msg: result.errorMsg
                             });
                         } else {
                            
@@ -125,8 +132,6 @@ $combo .='</select>';
                 }
             }
             </script>
-    
-   
 	<!-- Cuerpo del formulario-->
 
 	<!-- -->
