@@ -179,7 +179,7 @@ class Menu {
         return $resp;
     }
     
-    public function modificar($tipo){
+    public function modificar($tipo=""){
         $resp = false;
         $base=new BaseDatos();
       
@@ -195,7 +195,10 @@ class Menu {
             $sql.=",idpadre= ".$this->getObjMenu()->getIdmenu();
          else
             $sql.=",idpadre= null";
-         
+         if ($this->getMedeshabilitado()!=null)
+             $sql.= ",medeshabilitado='".$this->getMedeshabilitado()."'";
+         else
+              $sql.=" ,medeshabilitado=null";
         $sql.= " WHERE idmenu = ".$this->getIdmenu();
         
         }// echo $sql;

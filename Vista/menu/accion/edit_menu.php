@@ -10,13 +10,13 @@ if (isset($data['idmenu'])){
 
         $sms_error = " La accion  MODIFICACION No pudo concretarse";
         
-    }
-  //  $retorno['entra'] = "si entro";
+    }//else $respuesta =true;
+    
 }
 $retorno['respuesta'] = $respuesta;
-if (!$respuesta){
+if (isset($sms_error)){
     
-    $retorno['errorMsg']=" La accion  MODIFICACION No pudo concretarse";
+    $retorno['errorMsg']=$sms_error;
     
 }
 echo json_encode($retorno);
