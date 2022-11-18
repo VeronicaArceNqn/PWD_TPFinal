@@ -33,7 +33,7 @@ include_once "../../configuracion.php";
 	<!--<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>-->
 	<div data-options="region:'east',split:false,collapsed:true,title:'Perfil'" style="width:200px;padding:10px;"> Datos de usuario</div>
 	<div data-options="region:'south',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
-	<div data-options="region:'south2',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
+
 
 
 
@@ -85,7 +85,7 @@ include_once "../../configuracion.php";
 	</div>
 	<div  href="../usuario/listaUsuario.php">Registrar Usuario	</div>
 		<div>Rol</div>
-        <div>Menu</div>
+        <div href="../menu/formMenu.php">Menu</div>
 		<div>Producto</div>
 	</div>
 
