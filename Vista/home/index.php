@@ -59,6 +59,12 @@ include ($dir."../estructura/header.php");
      font-size: large;
      color: #0d6efd;
  }
+ .stockProducto {
+     font-weight:bold;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: large;
+     color: #198754;
+ }
 .card button {
   border: none;
   outline: 0;
@@ -76,8 +82,30 @@ include ($dir."../estructura/header.php");
   opacity: 0.7;
 }
 </style>
+<?php 
+$objCtrlProducto=new ABMproducto();
+$lista=$objCtrlProducto->buscar(null);
+//print_r($lista);
+foreach($lista as $objProducto)
+{
+?>
+<div class="card">
+<h2><?php echo $objProducto->getPronombre();?></h2>
+<div class="contenedorImg">
+  <img src="<?php echo $objProducto->getUrlimagen();?>" alt="imagen" class="imagen-producto">
+</div>
+<p class="precioProducto"><?php echo $objProducto->getPrecio(); ?></p>
+
+        <a class="titulo" href="#" onclick=""><?php echo $objProducto->getProdetalle();?></a>
+        <p><strong>STOCK:</strong></p> <p class="stockProducto"><?php echo $objProducto->getProcantstock(); ?></p>
+  <p><button>Agregar</button></p>
+</div>
 
 
+<?php
+}
+?>
+<!--
 <div class="card">
 <div class="contenedorImg">
   <img src="../../uploads/C1-2.webp" alt="Denim Jeans" class="imagen">
@@ -147,7 +175,7 @@ include ($dir."../estructura/header.php");
  
   <p><button>Agregar</button></p>
 </div>
-
+->
     <?php 
 
 include ($dir."../estructura/footer.php");

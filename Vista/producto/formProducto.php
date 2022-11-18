@@ -12,7 +12,7 @@ include_once '../../configuracion.php';
     <div class="card-body py-5 px-md-5">
 
        
-        <form class="needs-validation" id="form1" name="form1" method="post" action="accionNuevoProducto.php">
+        <form class="needs-validation" id="form1" name="form1" method="post" action="accion/alta_producto.php">
             <div class="form-group mb-4">
                 <h5>Ingrese los siguientes datos del Producto</h5>
                 <label for="pronombre">Nombre del producto</label>
@@ -34,6 +34,10 @@ include_once '../../configuracion.php';
             <div class="form-group mb-4">
                 <label for="precio">Precio</label>
                 <input type="number" class="form-control" id="precio" name="precio" placeholder="0.00" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="urlimagen">url imagen</label>
+                <input type="text" class="form-control" id="urlimagen" name="urlimagen" value="https://ibb.co/Nm6x6Wz" required>
             </div>
             <input id="accion" name="accion" value="nuevo" type="hidden">
             

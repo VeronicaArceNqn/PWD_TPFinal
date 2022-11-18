@@ -6,6 +6,7 @@ class Producto extends BaseDatos{
     private $procantstock;  
     private $tipo;
     private $precio;
+    private $urlimagen;
     private $mensajeoperacion;
 
     public function __contruct(){
@@ -15,15 +16,17 @@ class Producto extends BaseDatos{
         $this->procantstock="";
         $this->tipo="";
         $this->precio="";
+        $this->urlimagen="";
         $this->mensajeoperacion ="";
     }
-    public function setear($idproducto, $pronombre, $prodetalle, $procantstock, $tipo, $precio){
+    public function setear($idproducto, $pronombre, $prodetalle, $procantstock, $tipo, $precio,$urlimagen){
         $this->setIdproducto($idproducto);
         $this->setPronombre($pronombre);
         $this->setProdetalle($prodetalle);
         $this->setProcantstock($procantstock);
         $this->setTipo($tipo);
         $this->setPrecio($precio);
+        $this->setUrlimagen($urlimagen);
         }
     public function getIdproducto(){
         return $this->idproducto;
@@ -67,6 +70,16 @@ class Producto extends BaseDatos{
     public function setPrecio($valor){
         $this->precio = $valor;
     }
+    
+    public function getUrlimagen()
+    {
+        return $this->urlimagen;
+    }
+
+    public function setUrlimagen($urlimagen)
+    {
+        $this->urlimagen = $urlimagen;
+    }
     public function getmensajeoperacion(){
         return $this->mensajeoperacion;
     }
@@ -77,13 +90,13 @@ class Producto extends BaseDatos{
     public function cargar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM producto WHERE idproducto = '".$this->getIdproducto()."'";
+        $sql = "SELECT * FROM producto WHERE idproducto = ".$this->getIdproducto()."";
         if ($base->Iniciar()){
             $resp = $base->Ejecutar($sql);
             if($resp>-1){
                 if($resp>0){
                     $row = $base->Registro();
-                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock'], $row['tipo'], $row['precio']);
+                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'],$row['procantstock'], $row['tipo'], $row['precio'], $row['urlimagen']);
                 }
             }    
         } else {
@@ -95,11 +108,11 @@ class Producto extends BaseDatos{
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        echo "estoy en insertar de Producto";
+        //echo "estoy en insertar de Producto";
         // se puede crear la variable usdeshab para registrar null en el campo usdeshabilitado
 
         //$usdeshab="null";
-        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock, tipo, precio) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this->getProcantstock().", '".$this->getTipo()."',".$this->getPrecio().");";
+        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock,tipo, precio,urlimagen) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this->getProcantstock().", '".$this->getTipo()."',".$this->getPrecio().",'".$this->getUrlimagen()."');";
        echo "Este es el sql para insertar <br>".$sql;
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)){
@@ -115,31 +128,30 @@ class Producto extends BaseDatos{
         return $resp;
     }
     
-    /*public function modificar($tipo){
+    public function modificar(){
        // print_r($tipo);
         $resp = false;
         $base = new BaseDatos();
-        if($tipo['accion'] == "borradoLogico"){
-            $fechaActual=Date("Y-m-d h:i:s");
-            //echo date("Y-m-d h:i:s");
-            $sql="UPDATE usuario SET usdeshabilitado = '$fechaActual' WHERE idusuario = ".$this->getIdusuario()."";
-            //echo "<br> este es el UPDATE borradoLogico ". $sql;
-        }else{
-            $sql = "UPDATE usuario SET uspass = '".$this->getUspass()."' WHERE idusuario = ". $this->getIdusuario()."";
+      
+            $sql = "UPDATE producto SET pronombre = '".$this->getPronombre()."',prodetalle = '".$this->getProdetalle()."',procantstock = '".$this->getProcantstock()."' WHERE idproducto = ". $this->getIdproducto()."";
            // echo "<br> este es el UPDATE Contraseña ". $sql;
-        }
+        
         if ($base->Iniciar()){
             if ($base->Ejecutar($sql)){
                 $resp = true;
             }else{
-                $this->setmensajeoperacion("Usuario->modificar: ".$base->getError());
+                $this->setmensajeoperacion("Producto->modificar: ".$base->getError());
             }
         }else{
-            $this->setmensajeoperacion("Usuario->modificar: ".$base->getError());
+            $this->setmensajeoperacion("Producto->modificar: ".$base->getError());
         }
         return $resp;
-    }*/
-
+    }
+  /**
+   * Recupera los datos de la persona por numero de documento
+   * @param String $parametro
+   * @return array en caso de encontrar los datos, false en caso contrario 
+   */
     public static function listar($parametro=""){
         $arreglo = array();
         $base=new BaseDatos();
@@ -169,7 +181,7 @@ class Producto extends BaseDatos{
     /**
    * Recupera los datos de la persona por numero de documento
    * @param int idproducto
-   * @return true en caso de encontrar los datos, false en caso contrario 
+   * @return array en caso de encontrar los datos, false en caso contrario 
    */
     public function buscar($idproducto){
         $base = new BaseDatos();
@@ -185,6 +197,7 @@ class Producto extends BaseDatos{
                     $this->setProcantstock($row['procantstock']);
                     $this->setTipo($row['tipo']);
                     $this->setPrecio($row['precio']);
+                    $this->setUrlimagen($row['urlimagen']);
                     /*if($row['usdeshabilitado']=="0000-00-00 00:00:00"){
                         $usdeshab="habilitado";
                     }else{
@@ -203,7 +216,6 @@ class Producto extends BaseDatos{
         }
         return $resp;
     }
-
 
 }
 
