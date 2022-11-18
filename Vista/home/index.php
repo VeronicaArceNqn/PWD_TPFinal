@@ -8,8 +8,9 @@ include ($dir."../estructura/header.php");
 .card {
    
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 425px;
-  width: 425px;
+  max-width: 23.3%;
+  width: 33.3%;
+  min-width:300px;
   margin: 15px;
   text-align: center;
   font-family: arial;
