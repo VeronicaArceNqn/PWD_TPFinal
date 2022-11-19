@@ -155,7 +155,7 @@ include_once $dir."../estructura/header.php";
                 }
             }
             </script>
-          
+</div>
 	<!-- Cuerpo del formulario-->
 
 	<!-- -->

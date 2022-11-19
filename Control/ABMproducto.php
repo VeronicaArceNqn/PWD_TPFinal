@@ -140,11 +140,7 @@ class ABMproducto{
    */
     public function buscar($param){
         $where = " true ";
-        //echo "Este dato ingresa a Buscar en ABMproducto";
-        
-        //print_r($param);
-        //echo "<br>";
-        //print_r ($param['usmail']);
+       
         if($param<>NULL){
             if(isset($param['idproducto'])) 
                 $where.=" and idproducto = ".$param['idproducto'];
@@ -152,14 +148,13 @@ class ABMproducto{
                 $where.=" and pronombre ='".$param['pronombre']."'";
             if(isset($param['prodetalle'])) 
                 $where.=" and prodetalle ='".$param['prodetalle']."'";
+                if(isset($param['tipo'])) 
+                $where.=" and tipo ='".$param['tipo']."'";
             
         }
-        //print_r($where);
-        //echo "<br>";
+       
         $arreglo = Producto::listar($where);
-        //echo "Estoy en buscar \n";
-        //print_r($arreglo);
-    
+       
         return $arreglo;
        }
       /**
