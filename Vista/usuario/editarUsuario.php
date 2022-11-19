@@ -1,7 +1,7 @@
 <?php 
 $dir="../";
-$titulo =" Registro Usuario ";
-include_once $dir."../Vista/estructura/cabecera.php";
+$titulo =" Editar Usuario ";
+include_once $dir."../Vista/estructura/header.php";
 include_once '../../configuracion.php';
 $objAbmUsuario = new ABMusuario();
 $datos =data_submitted();
@@ -73,6 +73,6 @@ if (isset($datos['idusuario'])){
  </div>
  </div>
  <?php
-include ("../../Vista/estructura/pie.php");
+include ("../../Vista/estructura/footer.php");
 ?>
 </div>
