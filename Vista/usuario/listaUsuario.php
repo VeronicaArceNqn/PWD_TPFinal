@@ -12,7 +12,7 @@ include_once $dir."../estructura/header.php";
             <th field="idusuario" width="50">ID</th>
             <th field="usnombre" width="50">Usuario</th>
             <th field="usmail" width="50">Correo</th>
-            <th field="uspass" width="50">Usuario</th>
+            <th field="uspass" width="50">Password</th>
             <th field="usdeshabilitado" width="50">Deshabilitado</th>
             </tr>
             </thead>

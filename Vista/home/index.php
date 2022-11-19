@@ -8,7 +8,7 @@ include ($dir."../estructura/header.php");
 .card {
   padding-top: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 25%;
+  max-width: 23%;
   min-width: 300px;
   margin: 15px;
   text-align: center;
@@ -21,7 +21,7 @@ include ($dir."../estructura/header.php");
         display: flex;
         background-color: transparent;
         width: 100%;
-        height: 120px;
+        height: 100px;
         justify-content:center;
     } 
     .imagen{
@@ -32,10 +32,7 @@ include ($dir."../estructura/header.php");
         padding: -25px;
         background-color: transparent;
     }
-.price {
-  color: grey;
-  font-size: 22px;
-}
+
 .producto p{
      
      color:#353A40 ;
@@ -101,11 +98,13 @@ foreach($lista as $objProducto)
   <p><button>Agregar</button></p>
 </div>
 
-
 <?php
 }
 ?>
 
+
+</div>
+</div>
     <?php 
 
 include ($dir."../estructura/footer.php");

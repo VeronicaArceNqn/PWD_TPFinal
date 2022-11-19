@@ -1,8 +1,8 @@
 <?php
 $dir="";
 $titulo = "Login";
-include_once $dir.'../../configuracion.php';
-include_once $dir.'../estructura/cabecera.php';
+
+include_once $dir.'../estructura/header.php';
 $datos = data_submitted();
 
 ?>	
@@ -79,5 +79,5 @@ function formSubmit()
 </div>
 
 <?php
-include_once '../estructura/pie.php';
+include_once '../estructura/footer.php';
 ?>

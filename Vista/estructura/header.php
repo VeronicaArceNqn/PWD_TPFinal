@@ -19,34 +19,25 @@ include_once "../../configuracion.php";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 </head>
 <body class="easyui-layout">
-<div data-options="region:'north',border:false" style="height:200px;background:#fff;padding:10px">
+<div data-options="region:'north',border:false" style="min-height:250px;height:280px;background:#fff;padding:10px">
 	
-     <div id="logo" align="center"style="width: 100%;height: 180px;background-image: url('../css/images/logo-sis-text-2-(800p).png');
+     <div id="logo" align="center"style="width: 100%;height: 150px;background-image: url('../css/images/logo-sis-text-2-(800p).png');
   background-repeat: no-repeat;
   background-size: contain;
    background-position: center center;
   border: 0px solid black;
   text-align: center;
+
   "> 
 	</div>
-    </div>
-	<!--<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>-->
-	<div data-options="region:'east',split:false,collapsed:true,title:'Perfil'" style="width:200px;padding:10px;"> Datos de usuario</div>
-	<div data-options="region:'south',border:false" style="height:50px;background:#212529;color:white;padding:10px;text-align:center;">© 2022 Copyright: PWD - Grupo Nº7</div>
-
-
-
-
-  <div data-options="region:'center',title:''" style="height: auto;">
-  <div>
-	
 	<div class="easyui-panel" style="padding:5px; background-color:#0d6efd;color:white; width:100%;text-decoration:none;">
 		<a href="../home/index.php" class="easyui-linkbutton"  style="padding:5px; background-color:#0d6efd;color:white;" data-options="plain:true">Home</a>
 		<a href="#" class="easyui-menubutton"  style="padding:5px; background-color:#0d6efd;color:white;"data-options="menu:'#mm1'">Camaras</a>
 		<a href="#" class="easyui-menubutton"  style="padding:5px; background-color:#0d6efd;color:white;" data-options="menu:'#mm2'">Equipos</a>
 		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#0d6efd;color:white;" data-options="menu:'#mm3'">Accesorios</a>
-        <a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm4'">Administración</a>
-		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm5'">Gestión de deposito</a>
+		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm4'">Perfil de usuario</a>
+        <a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm5'">Administración</a>
+		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm6'">Gestión de deposito</a>
 		<!--<div id="cantProductos"style="float:right;font-size:27px;">0</div>-->
 	</div>
 	<div id="mm1" style="width:150px;">
@@ -79,11 +70,16 @@ include_once "../../configuracion.php";
 		<div>Cables</div>
 		<div>Conectores</div>
 	</div>
-    <div id="mm4">
+	<div id="mm4">
+		<div href="../usuario/perfil.php">Mis datos</div>
+		<div href="../compra/miscompras.php">Mis compras</div>
+		
+	</div>
+    <div id="mm5">
        
         <div href="../menu/listaMenu.php"> Editar Menu
 	</div>
-	<div  href="../usuario/listaUsuario.php">Registrar Usuario	</div>
+	<div  href="../usuario/listaUsuario.php">Gestion de Usuario	</div>
 		<div>Rol</div>
         <div href="../menu/formMenu.php">Menu</div>
 		<div href="../producto/formProducto.php">Form Producto</div>
@@ -91,10 +87,22 @@ include_once "../../configuracion.php";
 	</div>
 
 
-	<div id="mm5">
+	<div id="mm6">
 	<div>Supervisar compra</div>
 	<div>Actualizar stock</div>
         
 </div>
-        
-	</div>
+    </div>
+	<!--<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>-->
+	<div data-options="region:'east',split:false,collapsed:true,title:'Perfil'" style="width:200px;padding:10px;height: auto;"> Datos de usuario</div>
+
+
+
+
+
+  <div data-options="region:'center',title:''" style="height:auto;">
+  <div>
+	
+	
+</div>     
+	
