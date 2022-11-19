@@ -8,6 +8,7 @@ foreach ($list as $elem ){
     
     $nuevoElem['idusuario'] = $elem->getIdusuario();
     $nuevoElem["usnombre"]=$elem->getUsnombre();
+    $nuevoElem["uspass"]=$elem->getUspass();
     $nuevoElem["usmail"]=$elem->getUsmail();
     $nuevoElem["usdeshabilitado"]=$elem->getUsdeshabilitado();
     

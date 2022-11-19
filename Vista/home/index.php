@@ -6,10 +6,10 @@ include ($dir."../estructura/header.php");
 ?>
 <style>
 .card {
-   
+  padding-top: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 425px;
-  width: 425px;
+  max-width: 25%;
+  min-width: 300px;
   margin: 15px;
   text-align: center;
   font-family: arial;
@@ -94,10 +94,10 @@ foreach($lista as $objProducto)
 <div class="contenedorImg">
   <img src="<?php echo $objProducto->getUrlimagen();?>" alt="imagen" class="imagen-producto">
 </div>
-<p class="precioProducto"><?php echo $objProducto->getPrecio(); ?></p>
+<p class="precioProducto"><?php echo $objProducto->getPrecio(); ?>$</p>
 
         <a class="titulo" href="#" onclick=""><?php echo $objProducto->getProdetalle();?></a>
-        <p><strong>STOCK:</strong></p> <p class="stockProducto"><?php echo $objProducto->getProcantstock(); ?></p>
+        <p class="stockProducto"> <?php echo $objProducto->getProcantstock(); ?> diponibles</p>
   <p><button>Agregar</button></p>
 </div>
 
@@ -105,77 +105,7 @@ foreach($lista as $objProducto)
 <?php
 }
 ?>
-<!--
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/C1-2.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">20000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 2mpx</a>
 
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/C3.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">21000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 3mpx</a>
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/C2.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">23000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 4mpx</a>
-  
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/c4.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">25000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 5mpx</a>
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/c5.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">26000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 5mpx</a>
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/A1.webp" alt="Denim Jeans" class="imagen">
-</div><h2>WD</h2>
-<p class="precioProducto">24000 $</p>
-        <a class="titulo" href="#" onclick="">Disco duro WD Purple 1TB</a>
- 
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/E2.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">34000 $</p>
-        <a class="titulo" href="#" onclick="">DVR Dahua 4108</a>
- 
-  <p><button>Agregar</button></p>
-</div>
-<div class="card">
-<div class="contenedorImg">
-  <img src="../../uploads/E1.webp" alt="Denim Jeans" class="imagen">
-</div><h2>Dahua</h2>
-<p class="precioProducto">24000 $</p>
-        <a class="titulo" href="#" onclick="">Camara Dahua 4104</a>
- 
-  <p><button>Agregar</button></p>
-</div>
-->
     <?php 
 
 include ($dir."../estructura/footer.php");
