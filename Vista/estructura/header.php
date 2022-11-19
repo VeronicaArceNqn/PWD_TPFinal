@@ -35,9 +35,9 @@ include_once "../../configuracion.php";
 		<a href="../home/index.php?tipo=Camaras" class="easyui-linkbutton"  style="padding:5px; background-color:#0d6efd;color:white;"data-options="plain:true">Camaras</a>
 		<a href="../home/index.php?tipo=Equipos" class="easyui-linkbutton"  style="padding:5px; background-color:#0d6efd;color:white;" data-options="plain:true">Equipos</a>
 		<a href="../home/index.php?tipo=Accesorios" class="easyui-linkbutton"   style="padding:5px; background-color:#0d6efd;color:white;" data-options="plain:true">Accesorios</a>
-		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:170px;" data-options="menu:'#mm4'">Mi perfil</a>
-        <a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:170px;" data-options="menu:'#mm5'">Administración</a>
-		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:170px;" data-options="menu:'#mm6'">Gestión de deposito</a>
+		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm4'">Mi perfil</a>
+        <a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:140px;" data-options="menu:'#mm5'">Administrar</a>
+		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:140px;" data-options="menu:'#mm6'">Deposito</a>
 		<!--<div id="cantProductos"style="float:right;font-size:27px;">0</div>-->
 	</div>
 	<div id="mm1" style="width:150px;">
