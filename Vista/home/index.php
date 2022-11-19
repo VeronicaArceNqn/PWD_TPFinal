@@ -2,7 +2,14 @@
 $titulo =".: Inicio :.";
 $dir="";
 include ($dir."../estructura/header.php");
-//include ($dir."../login.php");
+
+if(isset($_GET["tipo"]))
+{
+   $param["tipo"]=$_GET["tipo"];
+}
+else{
+  $param=null;
+}
 ?>
 <style>
 .card {
@@ -81,7 +88,7 @@ include ($dir."../estructura/header.php");
 </style>
 <?php 
 $objCtrlProducto=new ABMproducto();
-$lista=$objCtrlProducto->buscar(null);
+$lista=$objCtrlProducto->buscar($param);
 //print_r($lista);
 foreach($lista as $objProducto)
 {
