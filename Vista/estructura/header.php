@@ -10,6 +10,9 @@ include_once "../../configuracion.php";
 <meta charset="UTF-8">
 <title><?php echo $titulo;?></title>
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/bootstrap/easyui.css">
+<link rel = "icon" href = 
+    "../css/images/icon-sis.png" 
+            type = "image/x-icon">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/icon.css">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/color.css">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/demo/demo.css">
@@ -35,6 +38,7 @@ include_once "../../configuracion.php";
 		<a href="../home/index.php?tipo=Camaras" class="easyui-linkbutton"  style="padding:5px; background-color:#0d6efd;color:white;"data-options="plain:true">Camaras</a>
 		<a href="../home/index.php?tipo=Equipos" class="easyui-linkbutton"  style="padding:5px; background-color:#0d6efd;color:white;" data-options="plain:true">Equipos</a>
 		<a href="../home/index.php?tipo=Accesorios" class="easyui-linkbutton"   style="padding:5px; background-color:#0d6efd;color:white;" data-options="plain:true">Accesorios</a>
+		<a href="../usuario/registrarse.php" class="easyui-linkbutton"  style="padding:5px; background-color:#0d6efd;color:white;" data-options="plain:true">Registrarse</a>
 		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;" data-options="menu:'#mm4'">Mi perfil</a>
         <a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:140px;" data-options="menu:'#mm5'">Administrar</a>
 		<a href="#" class="easyui-menubutton"   style="padding:5px; background-color:#212529;color:white;width:140px;" data-options="menu:'#mm6'">Deposito</a>
