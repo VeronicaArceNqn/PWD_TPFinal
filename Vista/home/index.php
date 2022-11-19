@@ -62,7 +62,7 @@ include ($dir."../estructura/header.php");
  .stockProducto {
      font-weight:bold;
      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     font-size: large;
+     font-size: 14px;
      color: #198754;
  }
 .card button {
