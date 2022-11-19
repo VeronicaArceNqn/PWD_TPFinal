@@ -90,11 +90,11 @@ include_once $dir."../estructura/header.php";
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancelar</a>
             </div>
             <script type="text/javascript">
-            var url;
+            var urlDatos;
             function newProducto(){
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Nuevo Menu');
                 $('#fm').form('clear');
-                url = 'accion/alta_producto.php';
+                urlDatos = 'accion/alta_producto.php';
             }
             
             function editProducto(){
@@ -102,20 +102,20 @@ include_once $dir."../estructura/header.php";
                 if (row){
                     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Editar Menu');
                     $('#fm').form('load',row);
-                    url = 'accion/edit_producto.php'
+                    urlDatos = 'accion/edit_producto.php'
                 }
             }
             function saveProduct(){
             	//alert(" Accion");
                 $('#fm').form('submit',{
-                    url: url,
+                    url: urlDatos,
                     onSubmit: function(){
                         return $(this).form('validate');
                     },
                     success: function(result){
                         var result = eval('('+result+')');
 
-                        alert("Volvio Serviodr"); 
+                        alert("Volvio Serviodr:"+result.respuesta); 
                        
                         if (!result.respuesta){
                             $.messager.show({
@@ -123,6 +123,9 @@ include_once $dir."../estructura/header.php";
                                 msg: "no se pudo concretar"
                             });
                         } else {
+                            
+                        alert("cerramos ventana"); 
+                       
                            //cerramos el dialog
                             $('#dlg').dialog('close');
                             //actualizamos los productos en el datagrid
