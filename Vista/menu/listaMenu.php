@@ -86,6 +86,7 @@ $combo .='</select>';
             function saveMenu(){
             	//alert(" Accion");
                 $('#fm').form('submit',{
+                    
                     url: url,
                     onSubmit: function(){
                         return $(this).form('validate');
@@ -95,9 +96,9 @@ $combo .='</select>';
 
                       //  alert("Volvio Serviodr"); 
                         //recorremos el array resultante
-                        $.each(result, function(key, value){
+                       /* $.each(result, function(key, value){
             alert(key + ": " + value);
-        });  
+        });  */
                         if (!result.respuesta){
                             $.messager.show({
                                 title: 'Error',

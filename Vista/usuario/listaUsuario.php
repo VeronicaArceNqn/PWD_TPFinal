@@ -12,13 +12,14 @@ include_once $dir."../estructura/header.php";
             <th field="idusuario" width="50">ID</th>
             <th field="usnombre" width="50">Usuario</th>
             <th field="usmail" width="50">Correo</th>
+            <th field="uspass" width="50">Usuario</th>
             <th field="usdeshabilitado" width="50">Deshabilitado</th>
             </tr>
             </thead>
             </table>
             <div id="toolbar">
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUsuario()">Nuevo Usuario </a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUsuario()">Editar Usuario</a>
+           <!-- <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUsuario()">Editar Usuario</a>-->
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUsuario()">Baja Usuario</a>
             </div>
             
@@ -32,10 +33,12 @@ include_once $dir."../estructura/header.php";
             </div>
             <div style="margin-bottom:10px">
             <input  name="usmail" id="usmail"  class="easyui-textbox" required="true" label="Correo:" style="width:100%">
+            
             </div>
             <div style="margin-bottom:10px">
             <input  name="uspass" id="uspass"  class="easyui-passwordbox" required="true" label="Password:" style="width:100%">
-            </div>
+            <!--<input  name="uspassencriptado" id="uspassencriptado"  class="easyui-textbox" required="true" label="Correo:" style="width:100%">-->    
+        </div>
             <div style="margin-bottom:10px">
             <input class="easyui-checkbox" name="usdeshabilitado" value="usdeshabilitado" label="Des-Habilitar:">
         </div>
@@ -72,6 +75,7 @@ include_once $dir."../estructura/header.php";
                 $('#fm').form('clear');
                 url = 'accion/alta_usuario.php';
             }
+            /*
             function editUsuario(){
                 var row = $('#dg').datagrid('getSelected');
                 if (row){
@@ -79,7 +83,7 @@ include_once $dir."../estructura/header.php";
                     $('#fm').form('load',row);
                     url = 'accion/edit_usuario.php?idusuario='+row.idusuario;
                 }
-            }
+            }*/
             function saveUsuario(){
                 var password =  $('#uspass').val();
                //alert(password);
@@ -87,6 +91,7 @@ include_once $dir."../estructura/header.php";
                //alert("passhash:"+passhash);
               //  $('#uspass').val(passhash);
                 $('#fm').form('submit',{
+                    //atributo: variable url
                     url: url,
                     onSubmit: function(){
                         return $(this).form('validate');
