@@ -14,8 +14,13 @@ include_once "../../configuracion.php";
     "../css/images/icon-sis.png" 
             type = "image/x-icon">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/icon.css">
+
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/color.css">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/demo/demo.css">
+
+<script type="text/javascript" src="../js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+
 <script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.easyui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
