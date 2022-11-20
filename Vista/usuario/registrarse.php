@@ -11,7 +11,7 @@ include ($dir."../estructura/header.php");
    background-position: center center;">
 		<form id="ff" class="easyui-form" method="post" action="accion/alta_usuario.php" data-options="novalidate:true">
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="usnombre" style="width:100%" data-options="label:'Nombre:',required:true">
+				<input class="easyui-textbox"id="usnombre" name="usnombre" style="width:100%" data-options="label:'Nombre:',required:true">
 			</div>
 			
 			<div style="margin-bottom:20px">
@@ -29,11 +29,14 @@ include ($dir."../estructura/header.php");
 			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Reset</a>
 		</div>
 	</div>
-
-	</div>
+    
 	<script type="text/javascript">
-          function registrar(){
-              $('#ff').form('submit',{
+   
+          function registrar()
+          {  
+         
+
+            $('#ff').form('submit',{
                     //url:'accion/alta_usuario.php',
                     url: 'accion/alta_usuario.php',
                     onSubmit: function(){
@@ -42,11 +45,11 @@ include ($dir."../estructura/header.php");
                     success: function(result){
                         var result = eval('('+result+')');
 
-                      //  alert("Volvio Serviodr"); 
+                        alert("Volvio Serviodr"); 
                         //recorremos el array resultante
-                       /* $.each(result, function(key, value){
+                        $.each(result, function(key, value){
             alert(key + ": " + value);
-        });  */
+        });  
                         if (!result.respuesta){
                             $.messager.show({
                                 title: 'Error',
