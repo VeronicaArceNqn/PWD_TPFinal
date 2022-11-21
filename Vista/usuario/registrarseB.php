@@ -8,11 +8,12 @@ include ($dir."../estructura/header.php");
    function registrar()
    {  
     var password = document.getElementById("password").value;
-alert(password);
+//alert(password);
 var passhash = CryptoJS.MD5(password).toString();
- alert(passhash);
+ //alert(passhash);
 document.getElementById("uspass").value = passhash;
 document.getElementById("password").value ="";    
+document.getElementById("usmail").value ="";  
 
      $('#ff').form('submit',{
              //url:'accion/alta_usuario.php',
@@ -23,11 +24,11 @@ document.getElementById("password").value ="";
              success: function(result){
                  var result = eval('('+result+')');
 
-                 alert("Volvio Serviodr"); 
+        /*         alert("Volvio Serviodr"); 
                  //recorremos el array resultante
                  $.each(result, function(key, value){
      alert(key + ": " + value);
- });  
+ });  */
                  if (!result.respuesta){
                      $.messager.show({
                          title: 'Error',
@@ -72,7 +73,7 @@ submitForm();
             <div class="card bg-white">
               <div class="card-body p-5">
                 <form id="ff" class="mb-3 mt-md-4">
-                  <h5 class="fw-bold mb-2 text-uppercase text-center">Login</h5>
+                  <h5 class="fw-bold mb-2 text-uppercase text-center">Registrarse</h5>
                   <div class="mb-3">
                     <label for="usnombre" class="form-label ">Nombre</label>
                     <input type="text" class="form-control" id="usnombre"name="usnombre">
@@ -83,8 +84,8 @@ submitForm();
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label ">Password</label>
-                    <input type="password" class="form-control" id="uspass"name="uspass" placeholder="*******">
-                    <input type="text" class="form-control" id="password"name="password" placeholder="*******">
+                    <input type="hidden" class="form-control" id="uspass"name="uspass">
+                    <input type="password" class="form-control" id="password"name="password" placeholder="*******">
                   </div>
                  
                   <div class="d-grid">
