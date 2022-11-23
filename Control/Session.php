@@ -21,6 +21,7 @@ class Session{
 
         $resultado = $obj->buscar($param);
         print_r($resultado);
+        // faltaría controlar que el usuario no esté deshabilitado
         if(count($resultado) > 0){
             $usuario = $resultado[0];
             $_SESSION['idusuario']=$usuario->getIdusuario();

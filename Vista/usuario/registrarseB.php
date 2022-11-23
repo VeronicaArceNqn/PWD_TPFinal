@@ -13,7 +13,7 @@ var passhash = CryptoJS.MD5(password).toString();
  //alert(passhash);
 document.getElementById("uspass").value = passhash;
 document.getElementById("password").value ="";    
-document.getElementById("usmail").value ="";  
+//document.getElementById("usmail").value ="";  
 
      $('#ff').form('submit',{
              //url:'accion/alta_usuario.php',
