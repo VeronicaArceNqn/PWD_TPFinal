@@ -70,6 +70,12 @@ class CompraEstadoTipo extends BaseDatos{
         $this->mensajeoperacion = $valor;
     }
 
+    public function setear($idcompraestadotipo, $cetdescripcion, $cetdetalle) {
+        $this->setIdcompraestadotipo($idcompraestadotipo);
+        $this->setCetdescripcion($cetdescripcion);
+        $this->setCetdetalle($cetdetalle);
+      }
+
     public function cargar() {
         $resp = false;
         $base = new BaseDatos();
@@ -129,7 +135,7 @@ class CompraEstadoTipo extends BaseDatos{
     public function eliminar() {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "DELETE FROM compraestadotipo WHERE idcompraestadotipo=".$this->getIdCompraEstTipo()."";
+        $sql = "DELETE FROM compraestadotipo WHERE idcompraestadotipo=".$this->getIdcompraestadotipo()."";
         if ($base->Iniciar()) {
         if ($base->Ejecutar($sql)) {
             return true;

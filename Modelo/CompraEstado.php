@@ -167,7 +167,7 @@ public function cargar() {
     $base = new BaseDatos();
     $sql = "UPDATE compraestado SET 
       idcompra = ".$this->getObjCompra()->getIdCompra().",
-      idcompraestadotipo = ".$this->getObjCompraEstTipo()->getIdcompraestadotipo().",
+      idcompraestadotipo = ".$this->getObjcompraestadotipo()->getIdcompraestadotipo().",
       cefechaini = '".$this->getCeFechaIni()."',
       cefechafin=" . (($this->getCeFechaFin() == '') ? "NULL" : "'{$this->getCeFechaFin()}'") . "
       WHERE idcompraestado = '".$this->getIdCompraEstado()."'";
