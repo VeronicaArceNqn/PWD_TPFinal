@@ -29,7 +29,7 @@ class ABMcompraestadotipo{
                 //if ($mensajeResultado==null) {
                     if (isset($datos['accion'])) {
                         //echo $datos['accion'];
-                       // print_r($datos);
+                        //print_r($datos);
                         if ($this->alta($datos)) {
                             $resp = true;
                         }
@@ -91,11 +91,12 @@ class ABMcompraestadotipo{
         return $resp;
      }
      public function alta($param){
-        //print_r($param);
+        
         $resp = false;
-        $param['idcompraestadotipo']=null;
+        //$param['idcompraestadotipo']=null;
 
         $elObjcet = $this->cargarObjeto($param);
+        
         if ($elObjcet!=null and $elObjcet->insertar()){
             $resp = true;
         }

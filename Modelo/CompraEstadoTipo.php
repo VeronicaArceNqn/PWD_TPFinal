@@ -79,7 +79,7 @@ class CompraEstadoTipo extends BaseDatos{
     public function cargar() {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM compraestadotipo WHERE idcompraestadotipo ='".$this->getIdcompraestadotipo()."'";
+        $sql = "SELECT * FROM compraestadotipo WHERE idcompraestadotipo =".$this->getIdcompraestadotipo()."";
         if ($base->Iniciar()) {
         $res = $base->Ejecutar($sql);
         if ($res > -1) {
@@ -98,8 +98,8 @@ class CompraEstadoTipo extends BaseDatos{
     public function insertar() {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO compraestadotipo ( idcompraestadotipo,cetdescripcion,cetdetalle ) VALUES (".$this->getIdcompraestadotipo().",'".$this->getCetdescripcion()."','".$this->getCetdetalle()."')";
-
+        $sql = "INSERT INTO compraestadotipo (idcompraestadotipo,cetdescripcion,cetdetalle ) VALUES (".$this->getIdcompraestadotipo().",'".$this->getCetdescripcion()."','".$this->getCetdetalle()."')";
+        
         if ($base->Iniciar()) {
             if ($id = $base->Ejecutar($sql)) {
                 $this->setIdcompraestadotipo($id);
@@ -117,7 +117,8 @@ class CompraEstadoTipo extends BaseDatos{
     public function modificar() {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE compraestadotipo SET cetdescripcion = '".$this->getCetdescripcion()."', cetdetalle = '".$this->getCetdetalle()."' WHERE idcompraestado = ".$this->getIdcompraestadotipo()."";
+        $sql = "UPDATE compraestadotipo SET cetdescripcion = '".$this->getCetdescripcion()."', cetdetalle = '".$this->getCetdetalle()."' WHERE idcompraestadotipo = ".$this->getIdcompraestadotipo()."";
+        
         if ($base->Iniciar()) {
 
         if ($base->Ejecutar($sql)) {
@@ -153,7 +154,7 @@ class CompraEstadoTipo extends BaseDatos{
         $base = new BaseDatos();
         $sql = "SELECT * FROM compraestadotipo ";
         if ($parametro != "") {
-        $sql .= " WHERE {$parametro}";
+        $sql .= " WHERE ".$parametro;
         }
         $res = $base->Ejecutar($sql);
         if ($res > -1) {
