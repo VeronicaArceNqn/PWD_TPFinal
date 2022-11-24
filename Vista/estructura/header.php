@@ -9,20 +9,25 @@ include_once "../../configuracion.php";
 <head>
 <meta charset="UTF-8">
 <title><?php echo $titulo;?></title>
-<link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/bootstrap/easyui.css">
 <link rel = "icon" href = 
     "../css/images/icon-sis.png" 
             type = "image/x-icon">
+			
+<link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/bootstrap/easyui.css">
+
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/icon.css">
 
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/color.css">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/demo/demo.css">
 
+<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
-<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.easyui.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 </head>

@@ -6,24 +6,30 @@ $dir="";
 
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title><?php echo $titulo;?></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?php echo $titulo;?></title><script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.min.js"></script>
+<!--
+<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.easyui.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/bootstrap/easyui.css">
-<link rel = "icon" href = 
-    "../css/images/icon-sis.png" 
-            type = "image/x-icon">
+<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.easyui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/icon.css">
 
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/themes/color.css">
 <link rel="stylesheet" type="text/css" href="../js/jquery-easyui-1.10.8/demo/demo.css">
-
-<script type="text/javascript" src="../js/bootstrap.bundle.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
 <script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery-easyui-1.10.8/jquery.easyui.min.js"></script>
+--><script type="text/javascript" src="../js/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 </head>
@@ -104,9 +110,9 @@ if($resp) {
 	//echo("<script>location.href = '../home/index.php';</script>");
 } else {
 
-	echo "se creo";
-	//    $mensaje ="Error, vuelva a intentarlo";
-    //echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
+	//echo "se creo";
+	    $mensaje ="Error, vuelva a intentarlo";
+   // echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
 }
 
 
