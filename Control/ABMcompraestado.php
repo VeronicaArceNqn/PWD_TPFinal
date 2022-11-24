@@ -7,6 +7,9 @@ class ABMcompraestado{
             if($this->modificacion($datos)){
                 $resp = true;
             }
+            else {
+                echo "no esta registrado";
+            }
         }
         if($datos['accion']=='borradoLogico'){
             if($this->bajaLogica($datos)){

@@ -3,11 +3,11 @@ class ABMproducto{
     //Espera como parámetro un arrego asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
     public function abm($datos){
         $resp = false;
-       /* if($datos['accion']=='editar'){
+        if($datos['accion']=='editar'){
             if($this->modificacion($datos)){
                 $resp = true;
             }
-        }
+        }/*
         if($datos['accion']=='borradoLogico'){
             if($this->bajaLogica($datos)){
                 $resp =true;
@@ -59,7 +59,6 @@ class ABMproducto{
             $obj = new Producto();
             $obj->setear($param['idproducto'], $param['pronombre'], $param['prodetalle'], $param['procantstock'], $param['tipo'], $param['precio'], $param['urlimagen']);
         }
-       // print_r($obj);
         return $obj;
     }
     
@@ -90,7 +89,6 @@ class ABMproducto{
         return $resp;
      }
      public function alta($param){
-        print_r($param);
         $resp = false;
         $param['idproducto']=null;
 

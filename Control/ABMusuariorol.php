@@ -15,13 +15,13 @@ class ABMusuariorol{
         }
         if ($datos['accion'] == 'nuevo') {
             $objUsurol=null;
-            if (isset($datos['idusuario'])) {
+            /*if (isset($datos['idusuario'])) {
                 $arrayusurol= ['idusuario' => $datos['idusuario']];
-                //print_r($arrayusurol);
+                print_r($arrayusurol);
                 $objUsurol = $this->buscar($arrayusurol);
-                //echo "<br>objUsurol me devuelve de buscar : <br>";
-                //print_r($objUsurol);
-            }
+                echo "<br>objUsurol me devuelve de buscar : <br>";
+                print_r($objUsurol);
+            }*/
             if ($objUsurol == null) {
                 // $mensajeResultado = $this->verificarUsuarioMail($datos);
                 //print_r($datos);
@@ -29,7 +29,7 @@ class ABMusuariorol{
                 //if ($mensajeResultado==null) {
                     if (isset($datos['accion'])) {
                         //echo $datos['accion'];
-                       // print_r($datos);
+                        //print_r($datos);
                         if ($this->alta($datos)) {
                             $resp = true;
                         }
@@ -112,7 +112,7 @@ class ABMusuariorol{
      public function alta($param){
         //print_r($param);
         $resp = false;
-        $param['idusuario']=null;
+        //$param['idusuario']=null;
 
         $elObjusurol = $this->cargarObjeto($param);
         if ($elObjusurol!=null and $elObjusurol->insertar()){
