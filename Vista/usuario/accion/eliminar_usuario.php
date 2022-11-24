@@ -3,8 +3,8 @@ include_once "../../../configuracion.php";
 $data = data_submitted();
 
 if (isset($data['idusuario'])){
-    $objC = new ABMusuario();
-    $respuesta = $objC->bajaLogica($data);
+    $objC = new ABMUsuario();
+    $respuesta = $objC->baja($data);
     if (!$respuesta){
         $mensaje = " La accion  ELIMINACION No pudo concretarse";
     }

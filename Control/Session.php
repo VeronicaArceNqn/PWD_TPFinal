@@ -17,14 +17,12 @@ class Session{
         $obj = new ABMUsuario();
         $param['usnombre']=$nombreUsuario;
         $param['uspass']=$psw;
-        $param['usdeshabilitado']='null';
+        $param['usdeshabilitado']=null;
 
         $resultado = $obj->buscar($param);
-        print_r($resultado);
-        // faltaría controlar que el usuario no esté deshabilitado
         if(count($resultado) > 0){
             $usuario = $resultado[0];
-            $_SESSION['idusuario']=$usuario->getIdusuario();
+            $_SESSION['idusuario']=$usuario->getidusuario();
             $resp = true;
         } else {
             $this->cerrar();

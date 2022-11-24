@@ -15,12 +15,13 @@ include ($dir."../estructura/header.php");
 			</div>
 			
 			<div style="margin-bottom:20px">
-				<input class="easyui-passwordbox" name="uspass" style="width:100%" data-options="label:'Password:',required:true">
-                <input type="hidden" name="passcifrado" style="width:300px">
+				<input class="easyui-passwordbox"id="uspass" name="uspass" style="width:100%" data-options="label:'Password:',required:true">
+                <input type="hidden"id="passcifrado" name="passcifrado" style="width:300px">
+                <input type="hidden"id="usdeshabilitado" name="usdeshabilitado" style="width:300px" value="null">
 			</div>
             
 			<div style="margin-bottom:20px">
-				<input class="easyui-textbox" name="usmail" style="width:100%" data-options="label:'Email:',required:true,validType:'email'">
+				<input class="easyui-textbox" id="usmail"name="usmail" style="width:100%" data-options="label:'Email:',required:true,validType:'email'">
 			</div>
 			
 		</form>

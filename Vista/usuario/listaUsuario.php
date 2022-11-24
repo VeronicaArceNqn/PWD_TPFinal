@@ -118,7 +118,7 @@ include_once $dir."../estructura/header.php";
                 if (row){
                     $.messager.confirm('Confirm','Seguro que desea eliminar el usuario?', function(r){
                         if (r){
-                            $.post('accion/eliminar_usuario.php?idusuario='+row.idusuario,{idusuario:row.id},
+                            $.post('accion/eliminar_usuario.php?accion=eliminar&idusuario='+row.idusuario,{idusuario:row.id},
                                function(result){
                                	 alert("Volvio Serviodr");   
                                  if (result.respuesta){

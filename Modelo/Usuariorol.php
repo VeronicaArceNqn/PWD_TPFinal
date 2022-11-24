@@ -1,43 +1,36 @@
 <?php 
-class Usuariorol
+class UsuarioRol extends BaseDatos 
 {
-    private $objUsuario;
-    private $objRol;
+    private $objusuario;
+    private $objrol;
+   
+    
     private $mensajeoperacion;
 
    
     public function __construct(){
-        
-        $this->objUsuario="";
-        $this->objRol="";
-        $this->mensajeoperacion ="";
-    }
-    public function setear($objUsuario, $objRol)
+        parent::__construct();
+        $this->objusuario=new Usuario();
+        $this->objrol= new Rol();
+       }
+    public function setear($objusuario, $objrol)
     {
-        $this->setObjUsuario($objUsuario);
-        $this->setObjRol($objRol);
-    }
-    
-    
-    
-    public function getObjUsuario(){
-        return $this->objUsuario;
-        
-    }
-    public function setObjUsuario($valor){
-        $this->objUsuario = $valor;
-    }
-    
-
-    public function getObjRol(){
-        return $this->objRol;
-
-    }
-    public function setObjRol($valor){
-        $this->objRol = $valor;
-
+        $this->setobjusuario($objusuario);
+        $this->setobjrol($objrol);
+       
     }
 
+    public function setearConClave($idusuario, $idjrol)
+    {
+        $this->getobjrol()->setidrol($idjrol);
+        $this->getobjusuario()->setidusuario($idusuario);
+    }
+
+    public function getobjusuario(){  return $this->objusuario;}
+    public function setobjusuario($objusuario){     $this->objusuario = $objusuario;    }
+    public function getobjrol(){      return $this->objrol;     }
+    public function setobjrol($objrol){  $this->objrol = $objrol;    }
+    
     public function getmensajeoperacion(){
         return $this->mensajeoperacion;
         
@@ -46,32 +39,27 @@ class Usuariorol
         $this->mensajeoperacion = $valor;
         
     }
-    
-    
     public function cargar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="SELECT * FROM usuariorol WHERE idusuario = ".$this->getObjUsuario()->getIdusuario()."";
-        if ($base->Iniciar()) {
-            $res = $base->Ejecutar($sql);
+        $sql="SELECT * FROM usuariorol WHERE idrol = ".$this->getobjrol()->getidrol()." AND idusuario = ".$this->getobjusuario()->getidusuario().";";
+        if ($this->Iniciar()) {
+            $res = $this->Ejecutar($sql);
             if($res>-1){
                 if($res>0){
-                    $row = $base->Registro();
-
-                    $objUsuario = new Usuario();
-                    $objUsuario->setIdusuario($row['idusuario']);
-                    $objUsuario->cargar();
-          
-                    $objRol = new Rol();
-                    $objRol->setIdrol($row['idrol']);
-                    $objRol->cargar();
-          
-                    $this->setear($objUsuario, $objRol);
+                    $row = $this->Registro();
+                    
+                    $obj1 = new Usuario();
+                    $obj1->setidusuario($row['idusuario']);
+                    $obj1->cargar();
+                    $obj2 = new Rol();
+                    $obj2->setidrol($row['idrol']);
+                    $obj2->cargar();
+                    $this->setear($obj1,$obj2);
                     
                 }
             }
         } else {
-            $this->setmensajeoperacion("UsuarioRol->listar: ".$base->getError());
+            $this->setmensajeoperacion("Especies->listar: ".$this->getError());
         }
         return $resp;
     
@@ -80,77 +68,60 @@ class Usuariorol
     
     public function insertar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="INSERT INTO usuariorol(idusuario, idrol)  VALUES('".$this->getObjUsuario()->getIdusuario()."','".$this->getObjRol()->getIdrol()."');";
-        if ($base->Iniciar()) {
-            if ($elid = $base->Ejecutar($sql)) {
-                $this->setObjRol($elid);
+        $sql="INSERT INTO usuariorol(idrol,idusuario)  VALUES(".$this->getobjrol()->getidrol().",".$this->getobjusuario()->getidusuario().");";
+        if ($this->Iniciar()) {
+            if ($elid = $this->Ejecutar($sql)) {
+               // $this->setidrol($elid);
                 $resp = true;
             } else {
-                $this->setmensajeoperacion("UsuarioRol->insertar: ".$base->getError());
+                $this->setmensajeoperacion("Especie->insertar: ".$this->getError());
             }
         } else {
-            $this->setmensajeoperacion("UsuarioRol->insertar: ".$base->getError());
+            $this->setmensajeoperacion("Especie->insertar: ".$this->getError());
         }
         return $resp;
     }
     
-    public function modificar(){
+      public function modificar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="UPDATE usuariorol SET idrol='".$this->getObjRol()->getIdrol()."' ".
-            " WHERE idusuario=".$this->getObjUsuario()->getIdusuario();
-        if ($base->Iniciar()) {
-            if ($base->Ejecutar($sql)) {
-                $resp = true;
-            } else {
-                $this->setmensajeoperacion("UsuarioRol->modificar: ".$base->getError());
-            }
-        } else {
-            $this->setmensajeoperacion("UsuarioRol->modificar: ".$base->getError());
-        }
         return $resp;
     }
-    /*
+
+
+
     public function eliminar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="DELETE FROM rol WHERE idrol=".$this->getidrol();
-        if ($base->Iniciar()) {
-            if ($base->Ejecutar($sql)) {
+        $sql="DELETE FROM usuariorol WHERE idrol=".$this->getobjrol()->getidrol()." AND idusuario =".$this->getobjusuario()->getidusuario().";";
+        if ($this->Iniciar()) {
+            //echo $sql;
+            if ($this->Ejecutar($sql)) {
                 return true;
             } else {
-                $this->setmensajeoperacion("Rol->eliminar: ".$base->getError());
+                $this->setmensajeoperacion("Especie->eliminar: ".$this->getError());
             }
         } else {
-            $this->setmensajeoperacion("Rol->eliminar: ".$base->getError());
+            $this->setmensajeoperacion("Especie->eliminar: ".$this->getError());
         }
         return $resp;
     }
-    */
-    public static function listar($parametro=""){
+     
+    public function listar($parametro=""){
         $arreglo = array();
-        $base=new BaseDatos();
         $sql="SELECT * FROM usuariorol ";
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
         }
-        $res = $base->Ejecutar($sql);
+        if ($this->Iniciar()) {
+           // echo $sql;
+        $res = $this->Ejecutar($sql);
         if($res>-1){
             if($res>0){
-                
-                while ($row = $base->Registro()){
+                while ($row = $this->Registro()){
                     $obj= new UsuarioRol();
-
-                    $objUsuario = new Usuario();
-                    $objUsuario->setIdusuario($row['idusuario']);
-                    $objUsuario->cargar();
-
-                    $objRol = new Rol();
-                    $objRol->setIdrol($row['idrol']);
-                    $objRol->cargar();
-
-                    $obj->setear($objUsuario, $objRol);
+                    
+                    $obj->getobjusuario()->setidusuario($row['idusuario']);
+                    $obj->getobjrol()->setidrol($row['idrol']);
+                    $obj->cargar();
                     array_push($arreglo, $obj);
                 }
                
@@ -158,32 +129,11 @@ class Usuariorol
             
         }
         else {
-          // $this->setmensajeoperacion("UsuarioRol->listar: ".$base->getError());
+           $this->setmensajeoperacion("Especie->listar: ".$this->getError());
         }
- 
+        }
         return $arreglo;
     }
-    //Ver si es necesario implementar la funcion Buscar
-    /*
-    public function buscar($idrol){
-        $base = new BaseDatos();
-        $sql = "SELECT * FROM Usuariorol WHERE idrol = '". $idrol. "'";
-        $resp = false;
-        if ($base->Iniciar()){
-            if ($base->Ejecutar($sql)){
-                if ($row = $base->Registro()){
-                    $this->setIdrol($row['idrol']);
-                    $this->setRodescripcion($row['usrodescripcion']);
-                    $resp = true;
-                }
-            }else{
-                $this->setmensajeoperacion($base->getError());
-            }
-        }else{
-            $this->setmensajeoperacion($base->getError());
-        }
-        return $resp;
-    }*/
     
 }
 

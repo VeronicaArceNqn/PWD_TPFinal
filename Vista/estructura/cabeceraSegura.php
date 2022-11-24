@@ -8,10 +8,9 @@ $dir="";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap/4.5.2/bootstrap.min.css">
-    <script src="../js/bootstrap/bootstrap.bundle.js"></script>
-    <script src="../js/bootstrap/bootstrap.min.js"></script>
-    <script src="../js/bootstrap/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
     <title><?php echo $titulo?></title>
@@ -68,10 +67,12 @@ $dir="";
 $objTrans = new Session();
 $resp = $objTrans->validar();
 if($resp) {
-   echo("<script>location.href = '../home/index.php';</script>");
+  echo "ya entro";
+  // echo("<script>location.href = '../home/paginaSegura.php';</script>");
 } else {
     $mensaje ="Error, vuelva a intentarlo";
-    echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
+   echo $mensaje;
+    //echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
 }
 
 
