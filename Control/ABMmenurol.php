@@ -112,7 +112,7 @@ class ABMmenurol{
      public function alta($param){
         //print_r($param);
         $resp = false;
-        $param['idmenu']=null;
+        //$param['idmenu']=null;
 
         $elObjmenurol = $this->cargarObjeto($param);
         if ($elObjmenurol!=null and $elObjmenurol->insertar()){

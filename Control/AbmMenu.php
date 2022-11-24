@@ -7,6 +7,8 @@ class AbmMenu{
         if($datos['accion']=='editar'){
             if($this->modificacion($datos)){
                 $resp = true;
+            }else {
+                //echo "El nombre de menu no está registrado";
             }
         }
         if($datos['accion']=='borradoLogico'){
@@ -180,14 +182,21 @@ class AbmMenu{
      */
     public function buscar($param){
         $where = " true ";
-        /*if ($param<>NULL){
-            if  (isset($param['id']))
-                $where.=" and id =".$param['id'];
-            if  (isset($param['descrip']))
-                 $where.=" and descrip ='".$param['descrip']."'";
-        }*/
-        $arreglo = Menu::listar($where);  
-        return $arreglo;
+        if ($param<>NULL){
+            if  (isset($param['idmenu']))
+                $where.=" and idmenu =".$param['idmenu'];
+            if  (isset($param['menombre']))
+                 $where.=" and menombre ='".$param['menombre']."'";
+            if  (isset($param['medescripcion']))
+                 $where.=" and medescripcion ='".$param['medescripcion']."'";
+            if  (isset($param['idpadre']))
+                $where.=" and idpadre =".$param['idpadre'];
+            if  (isset($param['medeshabilitado']))
+                 $where.=" and medeshabilitado ='".$param['medeshabilitado']."'";
+        }
+
+        $arreglo = Menu::listar($where); 
+      return $arreglo;
             
             
       
