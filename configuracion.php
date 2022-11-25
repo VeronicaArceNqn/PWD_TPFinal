@@ -1,14 +1,18 @@
-<?php header('Content-Type: text/html; charset=utf-8');
-header ("Cache-Control: no-cache, must-revalidate ");
+<?php
+// header('Content-Type: text/html; charset=utf-8');
+//header ("Cache-Control: no-cache, must-revalidate ");
 
 /////////////////////////////
 // CONFIGURACION APP//
 /////////////////////////////
-$PROYECTO ='PWD_TPFinal';
+//$PROYECTO ='PWD_TPFinal';
 
 //variable que almacena el directorio del proyecto
-$ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
-include_once($ROOT.'util/funciones.php');
+/*$ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
+
+include_once($ROOT.'util/funciones.php');*/
+$GLOBALS['ROOT'] =$_SERVER['DOCUMENT_ROOT'] ."/PWD_TPFinal/";
+include_once("util/funciones.php");
 //include_once($ROOT.'modelo/');
 //include_once($ROOT.'utiles/vendor/autoload.php');
 
@@ -22,6 +26,6 @@ include_once($ROOT.'util/funciones.php');
 //$PRINCIPAL = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/Vista/home/paginaSeguras.php";
 
 
-$_SESSION['ROOT']=$ROOT;
+//$_SESSION['ROOT']=$ROOT;
 
 ?>
