@@ -1,16 +1,16 @@
 <?php 
 include_once "../../../configuracion.php";
 $data = data_submitted();
-$objControl = new ABMusuario();
+$objControl = new ABMUsuario();
 $list = $objControl->buscar($data);
 $arreglo_salida =  array();
 foreach ($list as $elem ){
     
-    $nuevoElem['idusuario'] = $elem->getIdusuario();
-    $nuevoElem["usnombre"]=$elem->getUsnombre();
-    $nuevoElem["uspass"]=$elem->getUspass();
-    $nuevoElem["usmail"]=$elem->getUsmail();
-    $nuevoElem["usdeshabilitado"]=$elem->getUsdeshabilitado();
+    $nuevoElem['idusuario'] = $elem->getidusuario();
+    $nuevoElem["usnombre"]=$elem->getusnombre();
+    $nuevoElem["uspass"]=$elem->getuspass();
+    $nuevoElem["usmail"]=$elem->getusmail();
+    $nuevoElem["usdeshabilitado"]=$elem->getusdeshabilitado();
     
     array_push($arreglo_salida,$nuevoElem);
 }

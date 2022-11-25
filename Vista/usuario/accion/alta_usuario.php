@@ -3,7 +3,7 @@ include_once "../../../configuracion.php";
 $data = data_submitted();
 $respuesta = false;
 if (isset($data['usnombre'])){
-        $objC = new ABMusuario();
+        $objC = new ABMUsuario();
         $respuesta = $objC->alta($data);
         if (!$respuesta){
             $mensaje = " La accion  ALTA No pudo concretarse";

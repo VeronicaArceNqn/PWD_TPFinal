@@ -85,6 +85,7 @@ submitForm();
                   <div class="mb-3">
                     <label for="password" class="form-label ">Password</label>
                     <input type="hidden" class="form-control" id="uspass"name="uspass">
+                    <input type="hidden" class="form-control" id="usdeshabilitado"name="usdeshabilitado" value="null">
                     <input type="password" class="form-control" id="password"name="password" placeholder="*******">
                   </div>
                  
@@ -93,7 +94,7 @@ submitForm();
                   </div>
                 </form>
                 <div>
-                  <p class="mb-0  text-center">Todavia no tenés tu cuenta? <a href="../login/formLogin.php" class="text-primary fw-bold">Loguearse</a></p>
+                  <p class="mb-0  text-center">Todavia no tenés tu cuenta? <a href="../login/index.php" class="text-primary fw-bold">Loguearse</a></p>
                 </div>
 
               </div>

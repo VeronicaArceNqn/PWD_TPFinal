@@ -2,7 +2,7 @@
 $dir="";
 $titulo = "Inicio sesion";
 include_once $dir.'../../configuracion.php';
-include_once $dir.'../estructura/cabecera.php';
+//include_once $dir.'../estructura/header.php';
 $datos = data_submitted();
 $resp = false;
 //Array ( [accion] => login [usnombre] => malapi [uspass] => d41d8cd98f00b204e9800998ecf8427e )
@@ -16,11 +16,11 @@ if (isset($datos['accion'])){
             echo"se logueo correctamente\n";
           //  header("Location: '../home/index.php'");
            // header("location:../home/index.php");
-            echo("<script>location.href = '../home/index.php';</script>");
+            echo("<script>location.href = '../home/paginaSegura.php';</script>");
         } else {
             echo"no se logueo correctamente\n";
             $mensaje ="Error, vuelva a intentarlo";
-            echo("<script>location.href = './index.php?msg=".$mensaje."';</script>");
+            echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
         }
 
     }
@@ -31,10 +31,10 @@ if (isset($datos['accion'])){
         $resp = $objTrans->cerrar();
         if($resp) {
             $mensaje ="Vuelva... lo estaremos esperando...";
-            echo("<script>location.href = './index.php?msg=".$mensaje."';</script>");
+            echo("<script>location.href = '../home/index.php?msg=".$mensaje."';</script>");
         }
     }
 }
-include_once $dir.'../estructura/pie.php';   
+//include_once $dir.'../estructura/pie.php';   
 
 ?>

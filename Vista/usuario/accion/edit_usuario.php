@@ -3,7 +3,7 @@ include_once "../../../configuracion.php";
 $data = data_submitted();
 $respuesta = false;
 if (isset($data['idusuario'])){
-    $objC = new ABMusuario();
+    $objC = new ABMUsuario();
     $respuesta = $objC->modificacion($data);
     
     if (!$respuesta){
