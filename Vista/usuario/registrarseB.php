@@ -94,7 +94,7 @@ submitForm();
                   </div>
                 </form>
                 <div>
-                  <p class="mb-0  text-center">Todavia no tenés tu cuenta? <a href="../login/index.php" class="text-primary fw-bold">Loguearse</a></p>
+                  <p class="mb-0  text-center"><a href="../login/index.php" class="text-primary fw-bold">Iniciar sesi&oacute;n</a></p>
                 </div>
 
               </div>
