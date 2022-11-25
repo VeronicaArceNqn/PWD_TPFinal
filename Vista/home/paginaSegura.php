@@ -1,7 +1,7 @@
 <?php
 $titulo = ".: Inicio :.";
 $dir = "";
-include($dir . "../estructura/header.php");
+include_once $dir . '../estructura/headerSeguro.php';
 
 
 ?>
@@ -13,5 +13,5 @@ include($dir . "../estructura/header.php");
 
 <?php
 
-include($dir . "../estructura/footer.php");
+include_once $dir . '../estructura/pie.php';
 ?>

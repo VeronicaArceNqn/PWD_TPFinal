@@ -1,6 +1,6 @@
 
 <?php 
-include_once "../../configuracion.php";
+include_once ("../../configuracion.php");
 $dir="";
 $mensajeError="no se pudo concretar";
 ?>
@@ -29,6 +29,18 @@ $mensajeError="no se pudo concretar";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 
 </head>
+<?php
+
+$objTrans = new Session();
+$resp = $objTrans->validar();
+if($resp) {
+   $mensajeError="se creo";
+	//echo("<script>location.href = '../home/index.php';</script>");
+} 
+echo $mensajeError;
+
+
+?>
 <body class="easyui-layout">
 <div data-options="region:'north',border:false" style="min-height:250px;height:280px;background:#fff;padding:10px">
 	
@@ -98,15 +110,4 @@ $mensajeError="no se pudo concretar";
                         </a>
 	
 </div>     
-<?php
 
-$objTrans = new Session();
-$resp = $objTrans->validar();
-if($resp) {
-   $mensajeError="se creo";
-	//echo("<script>location.href = '../home/index.php';</script>");
-} 
-echo $mensajeError;
-
-
-?>

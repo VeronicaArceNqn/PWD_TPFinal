@@ -9,12 +9,26 @@ $dir="";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.css">
+  <!--<script src="../js/bootstrap.min.js"></script>-->
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>-->
     <title><?php echo $titulo?></title>
 </head>
+<?php
+$objTrans = new Session();
+$resp = $objTrans->validar();
+if($resp) {
+  echo "ya entro";
+  echo("<script>location.href = '../home/paginaSegura.php';</script>");
+} else {
+    $mensaje ="Error, vuelva a intentarlo";
+   echo $mensaje;
+    echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
+}
+
+
+?>
 <body>
    
 <div class="container">
@@ -63,18 +77,5 @@ $dir="";
 
  </div>
 </header>
-<?php
-$objTrans = new Session();
-$resp = $objTrans->validar();
-if($resp) {
-  echo "ya entro";
-  echo("<script>location.href = '../home/paginaSegura.php';</script>");
-} else {
-    $mensaje ="Error, vuelva a intentarlo";
-   echo $mensaje;
-    echo("<script>location.href = '../login/index.php?msg=".$mensaje."';</script>");
-}
 
-
-?>
 </div>
