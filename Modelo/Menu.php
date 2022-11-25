@@ -230,14 +230,18 @@ class Menu {
     }
     
     public static  function listar($parametro=""){
+        
         $arreglo = array();
         $base=new BaseDatos();
-        $sql="SELECT * FROM menu where medeshabilitado IS NULL;";
-     //   echo $sql;
+        //$sql="SELECT * FROM menu where medeshabilitado IS NULL ";
+        $sql="SELECT * FROM menu ";
+        
         if ($parametro!="") {
-            $sql.='WHERE '.$parametro;
+            $sql.=' WHERE '.$parametro;
+            
         }
         $res = $base->Ejecutar($sql);
+
         if($res>-1){
             if($res>0){
                 

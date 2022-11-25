@@ -7,6 +7,9 @@ class ABMcompraestado{
             if($this->modificacion($datos)){
                 $resp = true;
             }
+            else {
+                echo "no esta registrado";
+            }
         }
         if($datos['accion']=='borradoLogico'){
             if($this->bajaLogica($datos)){
@@ -80,9 +83,9 @@ class ABMcompraestado{
      */
     private function cargarObjetoConClave($param){
         $obj = null;
-        if(isset($param['idcompraestadotipo'])){
+        if(isset($param['idcompraestado'])){
             $obj = new CompraEstado();
-            $obj->setear($param['idcompraestadotipo'], null, null, null,null);
+            $obj->setear($param['idcompraestado'], null, null, null,null);
         }
         return $obj;
     }
@@ -94,7 +97,7 @@ class ABMcompraestado{
 
      private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['idcompraestadotipo']))
+        if (isset($param['idcompraestado']))
             $resp = true;
         //echo "SeteadosCamposClaves". $resp;
         return $resp;
@@ -102,7 +105,7 @@ class ABMcompraestado{
      public function alta($param){
         //print_r($param);
         $resp = false;
-        $param['idcompraestadotipo']=null;
+        $param['idcompraestado']=null;
 
         $elObjce = $this->cargarObjeto($param);
         if ($elObjce!=null and $elObjce->insertar()){
@@ -149,11 +152,11 @@ class ABMcompraestado{
      */
     public function buscar($param){
         $where = " true ";
-        //echo "Este dato ingresa a Buscar en ABMusuario";
+       //echo "Este dato ingresa a Buscar en ABMusuario";
         
         //print_r($param);
         //echo "<br>";
-        //print_r ($param['usmail']);
+        //print_r ($param['idcompraestado']);
         if($param<>NULL){
             if(isset($param['idcompraestado'])) 
                 $where.=" and idcompraestado = ".$param['idcompraestado'];
@@ -170,7 +173,7 @@ class ABMcompraestado{
         }
         //print_r($where);
         //echo "<br>";
-        $arreglo = CompraEstadoTipo::listar($where);
+        $arreglo = CompraEstado::listar($where);
         //echo "Estoy en buscar \n";
         //print_r($arreglo);
     
