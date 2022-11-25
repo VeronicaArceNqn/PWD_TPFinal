@@ -56,6 +56,7 @@ spl_autoload_register(function ($clase) {
          $GLOBALS['ROOT'].'Control/',
          $GLOBALS['ROOT'].'Modelo/conector/',
          $GLOBALS['ROOT'].'Modelo/otrasclases/',
+         $GLOBALS['ROOT'].'util/',
      );
      // print_r($directorys) ;
      foreach($directorys as $directory){
